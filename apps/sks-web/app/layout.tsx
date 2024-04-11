@@ -1,5 +1,11 @@
 import { FontBody } from "../helpers/fonts";
 import "./reset.css";
+import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
+import "@mantine/notifications/styles.css";
+
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,7 +21,12 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={FontBody.className}>{children}</body>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body className={FontBody.className}>
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
