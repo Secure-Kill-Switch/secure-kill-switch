@@ -16,7 +16,6 @@
     "@mantine/hooks": "^7.7.2",
     "@mantine/notifications": "^7.7.2",
     "@prisma/client": "5.12.1",
-    "@repo/ui": "workspace:*",
     "@vercel/postgres": "^0.8.0",
     "dayjs": "^1.11.10",
     "next": "^14.1.1",
