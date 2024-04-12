@@ -26,10 +26,13 @@ model SKSClient {
   id      String      @id @default(uuid())
   name    String?
   actions SKSAction[]
+  user    SKSUser?    @relation(fields: [userId], references: [id])
+  userId  String?
 }
 
 // user that can control the devices
 model SKSUser {
   id   String  @id @default(uuid())
   name String?
+  clients SKSClient[]
 }
