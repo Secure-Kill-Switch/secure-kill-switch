@@ -18,6 +18,9 @@ module.exports = {
     node: true,
     browser: true,
   },
+  rules: {
+    "no-unused-vars": "error",
+  },
   plugins: ["only-warn"],
   settings: {
     "import/resolver": {

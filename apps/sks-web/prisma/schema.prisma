@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("SKS_PRISMA_URL")
+  directUrl = env("SKS_URL_NON_POOLING")
+}
+
+// action that can be performed on the device
+enum SKSPossibleActions {
+  TURN_OFF
+}
+
+// action that can be performed on the device
+model SKSAction {
+  id          String        @id @default(uuid())
+  action      SKSPossibleActions
+  SKSClient   SKSClient?    @relation(fields: [sKSClientId], references: [id])
+  sKSClientId String?
+}
+
+// thats a device that can be controlled by the user
+model SKSClient {
+  id      String      @id @default(uuid())
+  name    String?
+  actions SKSAction[]
+}
+
+// user that can control the devices
+model SKSUser {
+  id   String  @id @default(uuid())
+  name String?
+}
