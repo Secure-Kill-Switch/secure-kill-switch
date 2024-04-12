@@ -2,13 +2,13 @@
 import { createUser } from "@/handlers/create-user";
 import { Button, Input } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
-import { SKSClient } from "@prisma/client";
+import { SKSUser } from "@prisma/client";
 
 export const NewUserForm = ({
   onUserCreated,
 }: {
   // eslint-disable-next-line no-unused-vars
-  onUserCreated: (client: SKSClient) => void;
+  onUserCreated: (client: SKSUser) => void;
 }) => {
   const createUserForm = useForm({
     initialValues: {

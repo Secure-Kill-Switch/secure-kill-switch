@@ -8,8 +8,8 @@ export const NewClientForm = ({
   userId,
   onClientCreated,
 }: {
-  // eslint-disable-next-line no-unused-vars
   userId: string;
+  // eslint-disable-next-line no-unused-vars
   onClientCreated: (client: SKSClient) => void;
 }) => {
   const createClientForm = useForm({
