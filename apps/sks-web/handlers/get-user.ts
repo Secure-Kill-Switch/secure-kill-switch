@@ -29,7 +29,7 @@ export async function getUser({ id }: Optional<Omit<SKSUser, "name">>) {
       status: 500,
       body: {
         message: "Error finding user",
-        error: error,
+        error: JSON.stringify(error),
       },
     };
   }

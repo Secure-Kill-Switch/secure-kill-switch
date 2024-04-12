@@ -21,7 +21,7 @@ export async function createUser({ name }: Omit<SKSUser, "id">) {
       status: 500,
       body: {
         message: "Error creating user",
-        error: error,
+        error: JSON.stringify(error),
       },
     };
   }
