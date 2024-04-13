@@ -4,9 +4,13 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 
+import { Container, Title } from "@mantine/core";
+import { FontHeader } from "@/helpers/fonts";
+
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import type { Metadata } from "next";
+import { PageContainer } from "@/components/page-container";
 
 export const metadata: Metadata = {
   title: "Secure Kill Switch",
@@ -25,7 +29,9 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body className={FontBody.className}>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider>
+          <PageContainer>{children}</PageContainer>
+        </MantineProvider>
       </body>
     </html>
   );

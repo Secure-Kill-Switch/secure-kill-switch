@@ -1,10 +1,19 @@
-import { Container, Text, Title } from "@mantine/core";
+import {
+  Container,
+  Grid,
+  GridCol,
+  RingProgress,
+  Text,
+  Title,
+} from "@mantine/core";
 import { SKSClient, SKSUser } from "@prisma/client";
 import { FontBody, FontHeader } from "@/helpers/fonts";
 import { getUser } from "@/handlers/get-user";
 import { ReactNode } from "react";
 import { getClients } from "@/handlers/get-clients";
 import { ClientsList } from "@/components/clients-list";
+
+const maxClients = 20;
 
 export default async function UserPageLayout({
   children,
@@ -24,18 +33,45 @@ export default async function UserPageLayout({
     ? (clientsDataCall.body.data as SKSClient[])
     : undefined;
   if (!gotUserData) {
-    return (
-      <Container mt={20}>
-        <Text className={FontHeader.className}>Error finding user</Text>
-      </Container>
-    );
+    return <Text className={FontHeader.className}>Error finding user</Text>;
   }
+  const getClientUsageData = (clients: typeof clientsData) => {
+    // max is 20
+    if (!clients) return [];
+    const totalClients = clients.length;
+    const usage = (totalClients / maxClients) * 100;
+    // should return value as such: value: 40, color: "cyan"
+    console.log("usage", usage);
+    return [
+      { value: usage, color: "red" },
+      { value: 100 - usage, color: "green" },
+    ];
+  };
   return (
-    <Container mt={20}>
-      <Title className={FontHeader.className}>Welcome {userData?.name}</Title>
-      <Text className={FontBody.className}>Your ID: {userData?.id}</Text>
+    <>
+      <Grid columns={24} align="center">
+        <GridCol span={18}>
+          <Title className={FontHeader.className} mb="15px">
+            Welcome{userData?.name ? ` ${userData.name}` : ""}
+          </Title>
+          <Text className={FontBody.className}>ID: {userData?.id}</Text>
+        </GridCol>
+        <GridCol span={6}>
+          <RingProgress
+            label={
+              <Text size="xs" ta="center">
+                Clients usage
+                <br />
+                (max {maxClients})
+              </Text>
+            }
+            size={140}
+            sections={getClientUsageData(clientsData)}
+          />
+        </GridCol>
+      </Grid>
       {children}
       {clientsData && <ClientsList clients={clientsData} />}
-    </Container>
+    </>
   );
 }

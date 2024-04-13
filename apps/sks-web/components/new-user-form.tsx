@@ -1,6 +1,6 @@
 "use client";
 import { createUser } from "@/handlers/create-user";
-import { Button, Input } from "@mantine/core";
+import { Button, Flex, Input } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { SKSUser } from "@prisma/client";
 
@@ -23,14 +23,20 @@ export const NewUserForm = ({
   };
   return (
     <Form form={createUserForm} onSubmit={createUserOnSubmit}>
-      <Input
-        placeholder="Your client name"
-        value={createUserForm.values.name}
-        onChange={(event) =>
-          createUserForm.setFieldValue("name", event.currentTarget.value)
-        }
-      />
-      <Button type="submit">Create User</Button>
+      <Flex direction="row">
+        <Input
+          w="100%"
+          mr="20px"
+          placeholder="Your client name"
+          value={createUserForm.values.name}
+          onChange={(event) =>
+            createUserForm.setFieldValue("name", event.currentTarget.value)
+          }
+        />
+        <Button type="submit" w="200px">
+          Create User
+        </Button>
+      </Flex>
     </Form>
   );
 };
