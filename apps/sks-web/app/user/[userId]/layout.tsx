@@ -1,17 +1,10 @@
-import {
-  Container,
-  Grid,
-  GridCol,
-  RingProgress,
-  Text,
-  Title,
-} from "@mantine/core";
-import { SKSClient, SKSUser } from "@prisma/client";
-import { FontBody, FontHeader } from "@/helpers/fonts";
-import { getUser } from "@/handlers/get-user";
-import { ReactNode } from "react";
-import { getClients } from "@/handlers/get-clients";
 import { ClientsList } from "@/components/clients-list";
+import { getClients } from "@/handlers/get-clients";
+import { getUser } from "@/handlers/get-user";
+import { FontBody, FontHeader } from "@/helpers/fonts";
+import { Grid, GridCol, RingProgress, Text, Title } from "@mantine/core";
+import { SKSClient, SKSUser } from "@prisma/client";
+import { ReactNode } from "react";
 
 const maxClients = 20;
 

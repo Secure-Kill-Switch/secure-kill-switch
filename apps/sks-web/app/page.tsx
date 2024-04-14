@@ -1,7 +1,7 @@
 "use client";
+import { NewUserForm } from "@/components/new-user-form";
 import { Box, Text } from "@mantine/core";
 import { SKSUser } from "@prisma/client";
-import { NewUserForm } from "@/components/new-user-form";
 import { useRouter } from "next/navigation";
 
 export default function HomePage(): JSX.Element {

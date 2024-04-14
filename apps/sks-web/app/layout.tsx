@@ -1,16 +1,13 @@
-import { FontBody } from "../helpers/fonts";
-import "./reset.css";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
-
-import { Container, Title } from "@mantine/core";
-import { FontHeader } from "@/helpers/fonts";
+import { FontBody } from "../helpers/fonts";
+import "./reset.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
-import type { Metadata } from "next";
 import { PageContainer } from "@/components/page-container";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Secure Kill Switch",

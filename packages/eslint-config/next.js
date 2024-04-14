@@ -19,9 +19,11 @@ module.exports = {
     browser: true,
   },
   rules: {
-    "no-unused-vars": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
   },
-  plugins: ["only-warn"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
   settings: {
     "import/resolver": {
       typescript: {
