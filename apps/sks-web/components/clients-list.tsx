@@ -1,9 +1,16 @@
 import { ClientActions } from "@/components/client-actions";
-import { shortenId } from "@/helpers/shorten-id";
+import { ClientIdCopyButton } from "@/components/client-id-copy-button";
+import { timeAgo } from "@/helpers/time-ago";
 import { Box, Flex, Grid, GridCol, Text, Title } from "@mantine/core";
 import { SKSClient } from "@prisma/client";
 
-export const ClientsList = ({ clients }: { clients: SKSClient[] }) => {
+export const ClientsList = ({
+  clients,
+  userId,
+}: {
+  clients: SKSClient[];
+  userId: string;
+}) => {
   return (
     <Box mt="30px">
       <Title>Clients List</Title>
@@ -18,42 +25,42 @@ export const ClientsList = ({ clients }: { clients: SKSClient[] }) => {
             key={client.id}
             span={4}
             style={{
-              // make it appear, staggered
               animation: `fadeIn 0.5s ease ${(clientIndex / 2) * 0.1}s 1 normal both`,
             }}
           >
             <Box
               p={10}
+              pos="relative"
               style={{
                 border: "1px solid",
                 borderColor: "lightgray",
                 borderRadius: "4px",
               }}
             >
-              <Flex direction="row" justify="space-between">
-                <Box>
-                  <Text mb={10} opacity={client.name ? 1 : 0.5} size="xl">
-                    {client.name || "Unnamed"}
+              <Box>
+                <Text mb={10} opacity={client.name ? 1 : 0.5} size="xl">
+                  {client.name || "Unnamed"}
+                </Text>
+                <Flex direction="row" mb="5px">
+                  <Text size="sm" fw="bold">
+                    Client ID:
                   </Text>
-                  <Text
-                    size="sm"
-                    mb={5}
-                    style={{
-                      textOverflow: "ellipsis",
-                      wordBreak: "keep-all",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <b>Client ID: </b>
-                    {shortenId(client.id)}
+                  <ClientIdCopyButton clientId={client.id} />
+                </Flex>
+                <Flex direction="row" mb="5px">
+                  <Text size="sm" fw="bold">
+                    Last active:
                   </Text>
-                  <Text size="sm" mb={5}>
-                    <b>Last active: </b>????
+                  <Text size="sm" ml="5px">
+                    {timeAgo(client.lastActive)}
                   </Text>
-                </Box>
-                <ClientActions clientId={client.id} />
-              </Flex>
+                </Flex>
+              </Box>
+              <ClientActions
+                userId={userId}
+                clientId={client.id}
+                clientName={client.name}
+              />
             </Box>
           </GridCol>
         ))}

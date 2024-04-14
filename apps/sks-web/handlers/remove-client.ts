@@ -2,10 +2,10 @@
 import { prisma } from "@/helpers/prisma";
 import { SKSClient } from "@prisma/client";
 
-export async function createClient({
-  name,
+export async function removeClient({
   userId,
-}: Omit<SKSClient, "id" | "lastActive">) {
+  id,
+}: Pick<SKSClient, "userId" | "id">) {
   try {
     if (!userId) {
       return {
@@ -28,24 +28,23 @@ export async function createClient({
         },
       };
     }
-    const createClientCall = await prisma.sKSClient.create({
-      data: {
-        name,
-        userId,
+    const removeClientCall = await prisma.sKSClient.delete({
+      where: {
+        id,
       },
     });
     return {
       status: 200,
       body: {
-        message: "Client created",
-        data: createClientCall,
+        message: "Client removed",
+        data: removeClientCall,
       },
     };
   } catch (error) {
     return {
       status: 500,
       body: {
-        message: "Error creating client",
+        message: "Error removing client",
         error: JSON.stringify(error),
       },
     };

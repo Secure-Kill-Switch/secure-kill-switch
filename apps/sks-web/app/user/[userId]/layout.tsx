@@ -15,8 +15,9 @@ export default async function UserPageLayout({
   children: ReactNode;
   params: { userId: string };
 }): Promise<{}> {
-  const userDataCall = await getUser({ id: params.userId });
-  const clientsDataCall = await getClients({ id: params.userId });
+  const { userId } = params;
+  const userDataCall = await getUser({ id: userId });
+  const clientsDataCall = await getClients({ id: userId });
   const gotUserData = userDataCall.status === 200;
   const gotClientsData = clientsDataCall.status === 200;
   const userData = gotUserData
@@ -63,7 +64,9 @@ export default async function UserPageLayout({
         </GridCol>
       </Grid>
       {children}
-      {clientsData && <ClientsList clients={clientsData} />}
+      {clientsData && userData?.id && (
+        <ClientsList userId={userData.id} clients={clientsData} />
+      )}
     </>
   );
 }

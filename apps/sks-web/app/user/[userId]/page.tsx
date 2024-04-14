@@ -12,7 +12,6 @@ export default function UserPage({
   params: { userId: string };
 }): ReactNode {
   const onClientCreated = (client: SKSClient) => {
-    console.log("Client created", client);
     notifications.show({
       title: "Client created",
       message: client.name
