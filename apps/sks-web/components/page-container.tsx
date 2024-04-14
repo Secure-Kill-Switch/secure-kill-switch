@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 
 export const PageContainer = ({ children }: PropsWithChildren) => {
   return (
-    <Container mt={20} w={600}>
+    <Container mt={20}>
       <Title className={FontHeader.className} lh="26px" mb="30px">
         Secure
         <br />

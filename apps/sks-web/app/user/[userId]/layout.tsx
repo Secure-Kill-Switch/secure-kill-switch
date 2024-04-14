@@ -33,11 +33,10 @@ export default async function UserPageLayout({
     if (!clients) return [];
     const totalClients = clients.length;
     const usage = (totalClients / maxClients) * 100;
-    // should return value as such: value: 40, color: "cyan"
-    console.log("usage", usage);
+    const usageColor = usage > 80 ? "red" : "green";
     return [
-      { value: usage, color: "red" },
-      { value: 100 - usage, color: "green" },
+      { value: usage, color: usageColor },
+      { value: 100 - usage, color: "rgba(150, 150, 150, 0.2)" },
     ];
   };
   return (
@@ -55,7 +54,7 @@ export default async function UserPageLayout({
               <Text size="xs" ta="center">
                 Clients usage
                 <br />
-                (max {maxClients})
+                <small>(max {maxClients})</small>
               </Text>
             }
             size={140}

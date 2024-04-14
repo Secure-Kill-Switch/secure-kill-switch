@@ -7,6 +7,7 @@ import "./reset.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { PageContainer } from "@/components/page-container";
+import { Notifications } from "@mantine/notifications";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={FontBody.className}>
         <MantineProvider>
           <PageContainer>{children}</PageContainer>
+          <Notifications />
         </MantineProvider>
       </body>
     </html>
