@@ -2,6 +2,7 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 import { FontBody } from "../helpers/fonts";
+import "./animations.css";
 import "./reset.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";

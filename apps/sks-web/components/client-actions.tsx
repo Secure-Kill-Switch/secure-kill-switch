@@ -10,6 +10,7 @@ export const ClientActions = ({ clientId }: { clientId: string }) => {
       <CopyButton value={clientId}>
         {({ copied, copy }) => (
           <Button
+            size="xs"
             color={copied ? "teal" : "blue"}
             onClick={() => {
               notifications.show({
@@ -27,10 +28,19 @@ export const ClientActions = ({ clientId }: { clientId: string }) => {
           </Button>
         )}
       </CopyButton>
-      <Button mb={5} leftSection={<IconEdit size={14} stroke={1.5} />}>
+      <Button
+        size="xs"
+        mb={5}
+        leftSection={<IconEdit size={14} stroke={1.5} />}
+      >
         Edit
       </Button>
-      <Button mb={5} color="red" leftSection={<IconX size={14} stroke={1.5} />}>
+      <Button
+        size="xs"
+        mb={5}
+        color="red"
+        leftSection={<IconX size={14} stroke={1.5} />}
+      >
         Remove
       </Button>
     </Flex>

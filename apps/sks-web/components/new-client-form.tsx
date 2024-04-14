@@ -24,6 +24,7 @@ export const NewClientForm = ({
     });
     if (createClientReply.status === 200 && createClientReply.body?.data?.id) {
       onClientCreated(createClientReply.body.data);
+      createClientForm.reset();
     }
   };
   return (

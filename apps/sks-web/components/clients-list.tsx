@@ -9,12 +9,19 @@ export const ClientsList = ({ clients }: { clients: SKSClient[] }) => {
       <Title>Clients List</Title>
       {clients.length === 0 && <Box mt="20px">No clients found</Box>}
       <Grid
-        columns={8}
+        columns={12}
         mt={30}
         gutter={{ base: 5, xs: "md", md: "xl", xl: 50 }}
       >
-        {clients.map((client) => (
-          <GridCol key={client.id} span={4}>
+        {clients.map((client, clientIndex) => (
+          <GridCol
+            key={client.id}
+            span={4}
+            style={{
+              // make it appear, staggered
+              animation: `fadeIn 0.5s ease ${(clientIndex / 2) * 0.1}s 1 normal both`,
+            }}
+          >
             <Box
               p={10}
               style={{
