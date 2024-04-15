@@ -1,5 +1,5 @@
 export function timeAgo(input: Date | null) {
-  if (!input) return "Never";
+  if (!input) return "Never active";
   const date = input instanceof Date ? input : new Date(input);
   const formatter = new Intl.RelativeTimeFormat("en");
   const ranges = [
@@ -12,12 +12,12 @@ export function timeAgo(input: Date | null) {
     ["seconds", 1],
   ] as const;
   const secondsElapsed = (date.getTime() - Date.now()) / 1000;
-  if (Math.abs(secondsElapsed) < 60) return "Just now";
+  if (Math.abs(secondsElapsed) < 60) return "Active just now";
 
   for (const [rangeType, rangeVal] of ranges) {
     if (rangeVal < Math.abs(secondsElapsed)) {
       const delta = secondsElapsed / rangeVal;
-      return formatter.format(Math.round(delta), rangeType);
+      return `Active ${formatter.format(Math.round(delta), rangeType)}`;
     }
   }
 }

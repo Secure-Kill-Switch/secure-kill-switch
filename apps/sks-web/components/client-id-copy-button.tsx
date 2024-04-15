@@ -1,21 +1,18 @@
 "use client";
 
 import { shortenId } from "@/helpers/shorten-id";
-import { CopyButton, Text } from "@mantine/core";
+import { CopyButton, Flex, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCopy } from "@tabler/icons-react";
 
 export const ClientIdCopyButton = ({ clientId }: { clientId: string }) => {
   return (
     <CopyButton value={clientId}>
-      {({ copied, copy }) => (
-        <Text
+      {({ copy }) => (
+        <Flex
           style={{
             cursor: "pointer",
           }}
-          size="sm"
-          ml={5}
-          c={copied ? "teal" : "gray"}
           onClick={() => {
             notifications.show({
               title: "Client ID copied",
@@ -25,8 +22,9 @@ export const ClientIdCopyButton = ({ clientId }: { clientId: string }) => {
             });
             copy();
           }}
+          align="center"
         >
-          {shortenId(clientId)}
+          <Text size="sm">{shortenId(clientId)}</Text>
           <IconCopy
             style={{
               display: "inline",
@@ -35,7 +33,7 @@ export const ClientIdCopyButton = ({ clientId }: { clientId: string }) => {
             size={14}
             stroke={1.5}
           />
-        </Text>
+        </Flex>
       )}
     </CopyButton>
   );

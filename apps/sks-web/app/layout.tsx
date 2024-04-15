@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={FontBody.className}>
         <MantineProvider>
           <PageContainer>{children}</PageContainer>
-          <Notifications />
+          <Notifications position="top-right" />
         </MantineProvider>
       </body>
     </html>

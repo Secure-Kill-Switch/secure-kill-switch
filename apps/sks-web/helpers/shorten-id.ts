@@ -1,3 +1,3 @@
 export const shortenId = (id: string) => {
-  return id.slice(0, 4) + "..." + id.slice(-4);
+  return id.slice(0, 8) + "..." + id.slice(-8);
 };
