@@ -43,13 +43,23 @@ export default async function UserPageLayout({
   return (
     <>
       <Grid columns={24} align="center">
-        <GridCol span={18}>
+        <GridCol
+          span={{
+            base: 24,
+            lg: 18,
+          }}
+        >
           <Title className={FontHeader.className} mb="15px">
             Welcome{userData?.name ? ` ${userData.name}` : ""}
           </Title>
           <Text className={FontBody.className}>ID: {userData?.id}</Text>
         </GridCol>
-        <GridCol span={6}>
+        <GridCol
+          span={{
+            base: 24,
+            lg: 6,
+          }}
+        >
           <RingProgress
             label={
               <Text size="xs" ta="center">
@@ -58,7 +68,12 @@ export default async function UserPageLayout({
                 <small>(max {maxClients})</small>
               </Text>
             }
-            size={140}
+            mx={{
+              base: "auto",
+              lg: 0,
+            }}
+            thickness={20}
+            size={200}
             sections={getClientUsageData(clientsData)}
           />
         </GridCol>

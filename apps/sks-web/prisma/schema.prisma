@@ -13,6 +13,14 @@ enum SKSPossibleActions {
   TURN_OFF
 }
 
+enum ClientIcons {
+  laptop
+  desktop
+  mac
+  linux
+  windows
+}
+
 // action that can be performed on the device
 model SKSAction {
   id          String        @id @default(uuid())
@@ -29,6 +37,7 @@ model SKSClient {
   user    SKSUser?    @relation(fields: [userId], references: [id])
   userId  String?
   lastActive DateTime?
+  icon ClientIcons @default(laptop)
 }
 
 // user that can control the devices

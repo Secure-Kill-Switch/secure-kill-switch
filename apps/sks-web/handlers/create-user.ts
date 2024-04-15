@@ -1,9 +1,12 @@
 "use server";
+import { nameGeneratorOptions } from "@/helpers/name-generator-options";
 import { prisma } from "@/helpers/prisma";
 import { SKSUser } from "@prisma/client";
+import { uniqueNamesGenerator } from "unique-names-generator";
 
-export async function createUser({ name }: Omit<SKSUser, "id">) {
+export async function createUser({ name: definedName }: Omit<SKSUser, "id">) {
   try {
+    const name = definedName || uniqueNamesGenerator(nameGeneratorOptions());
     const createUser = await prisma.sKSUser.create({
       data: {
         name,
