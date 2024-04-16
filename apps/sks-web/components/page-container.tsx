@@ -1,4 +1,3 @@
-import { FontHeader } from "@/helpers/fonts";
 import { Container, Title } from "@mantine/core";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
@@ -10,17 +9,13 @@ export const PageContainer = ({ children }: PropsWithChildren) => {
         href="/"
         style={{
           cursor: "pointer",
-          color: "black",
+          color: "unset",
           textDecoration: "none",
           outline: "none",
         }}
       >
-        <Title className={FontHeader.className} lh="26px" mb="30px">
-          Secure
-          <br />
-          Kill
-          <br />
-          Switch
+        <Title size="35px" lh="26px" mb="30px" lts="-1px">
+          Secure Kill Switch
         </Title>
       </Link>
       {children}

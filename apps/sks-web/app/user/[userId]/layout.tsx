@@ -1,7 +1,6 @@
 import { ClientsList } from "@/components/clients-list";
 import { getClients } from "@/handlers/get-clients";
 import { getUser } from "@/handlers/get-user";
-import { FontBody, FontHeader } from "@/helpers/fonts";
 import { Grid, GridCol, RingProgress, Text, Title } from "@mantine/core";
 import { SKSClient, SKSUser } from "@prisma/client";
 import { ReactNode } from "react";
@@ -27,7 +26,7 @@ export default async function UserPageLayout({
     ? (clientsDataCall.body.data as SKSClient[])
     : undefined;
   if (!gotUserData) {
-    return <Text className={FontHeader.className}>Error finding user</Text>;
+    return <Text>Error finding user</Text>;
   }
   const getClientUsageData = (clients: typeof clientsData) => {
     // max is 20
@@ -49,10 +48,10 @@ export default async function UserPageLayout({
             lg: 18,
           }}
         >
-          <Title className={FontHeader.className} mb="15px">
+          <Title mb="15px">
             Welcome{userData?.name ? ` ${userData.name}` : ""}
           </Title>
-          <Text className={FontBody.className}>ID: {userData?.id}</Text>
+          <Text>ID: {userData?.id}</Text>
         </GridCol>
         <GridCol
           span={{

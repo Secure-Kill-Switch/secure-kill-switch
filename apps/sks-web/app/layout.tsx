@@ -1,13 +1,13 @@
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
-import { FontBody } from "../helpers/fonts";
 import "./animations.css";
 import "./reset.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { PageContainer } from "@/components/page-container";
+import { sksTheme } from "@/helpers/theme";
 import { Notifications } from "@mantine/notifications";
 import type { Metadata } from "next";
 
@@ -23,12 +23,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en">
+    <html lang="en" data-mantine-color-scheme="dark">
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript forceColorScheme="dark" />
       </head>
-      <body className={FontBody.className}>
-        <MantineProvider>
+      <body>
+        <MantineProvider
+          defaultColorScheme="dark"
+          forceColorScheme="dark"
+          theme={sksTheme}
+        >
           <PageContainer>{children}</PageContainer>
           <Notifications position="top-right" />
         </MantineProvider>
