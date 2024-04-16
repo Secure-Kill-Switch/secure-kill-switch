@@ -8,7 +8,6 @@ import dayjs from "dayjs";
 export const ClientsItem = ({
   client,
   clientIndex,
-  userId,
 }: {
   client: SKSClient;
   clientIndex: number;

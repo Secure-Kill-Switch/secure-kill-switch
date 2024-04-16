@@ -1,7 +1,7 @@
 import { FontBody, FontHeader } from "@/helpers/fonts";
-import { createTheme } from "@mantine/core";
+import { MantineThemeOverride, createTheme } from "@mantine/core";
 
-export const sksTheme = createTheme({
+export const sksTheme: MantineThemeOverride = createTheme({
   fontFamily: FontBody.style.fontFamily,
   headings: {
     fontFamily: FontHeader.style.fontFamily,
