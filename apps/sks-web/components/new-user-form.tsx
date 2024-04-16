@@ -47,7 +47,11 @@ export const NewUserForm = ({
         size="auto"
         opened={addNewUserOpened}
         onClose={closeAddNewUser}
-        title="Adding a new user"
+        title={
+          <Text ff="heading" size="25px">
+            Adding a new user
+          </Text>
+        }
         overlayProps={{
           backgroundOpacity: 0.55,
           blur: 3,

@@ -4,10 +4,12 @@ import { timeAgo } from "@/helpers/time-ago";
 import { Box, Flex, GridCol, Indicator, Text } from "@mantine/core";
 import { SKSClient } from "@prisma/client";
 import dayjs from "dayjs";
+import { Fragment } from "react";
 
 export const ClientsItem = ({
   client,
   clientIndex,
+  userId,
 }: {
   client: SKSClient;
   clientIndex: number;
@@ -21,9 +23,8 @@ export const ClientsItem = ({
     : clientIconsComponents["laptop"];
 
   return (
-    <>
+    <Fragment key={`client-${client.id}`}>
       <GridCol
-        key={`client-${client.id}`}
         span={{
           base: 6,
           lg: 4,
@@ -40,7 +41,7 @@ export const ClientsItem = ({
           withBorder
           h="100%"
         >
-          <ClientsItemDetailsModal client={client}>
+          <ClientsItemDetailsModal client={client} userId={userId}>
             <Box
               p={10}
               h="100%"
@@ -81,15 +82,10 @@ export const ClientsItem = ({
                   </Text>
                 </Box>
               </Flex>
-              {/* <ClientActions
-              userId={userId}
-              clientId={client.id}
-              clientName={client.name}
-            /> */}
             </Box>
           </ClientsItemDetailsModal>
         </Indicator>
       </GridCol>
-    </>
+    </Fragment>
   );
 };

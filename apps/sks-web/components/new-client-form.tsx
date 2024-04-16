@@ -78,7 +78,11 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
         size="auto"
         opened={addNewClientOpened}
         onClose={closeAddNewClient}
-        title="Adding a new client"
+        title={
+          <Text ff="heading" size="25px">
+            Adding a new client
+          </Text>
+        }
         overlayProps={{
           backgroundOpacity: 0.55,
           blur: 3,
