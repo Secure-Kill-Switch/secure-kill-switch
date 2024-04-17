@@ -1,4 +1,5 @@
 import { ClientsItem } from "@/components/clients-item";
+import { glassBoxClassName } from "@/components/glass-box";
 import { NewClientForm } from "@/components/new-client-form";
 import { Box, Grid, Title } from "@mantine/core";
 import { SKSClient } from "@prisma/client";
@@ -27,10 +28,11 @@ export const ClientsList = ({
       <Title>Active clients</Title>
       <Grid
         columns={12}
-        mt={30}
+        mt={10}
         gutter={{ base: 5, xs: "md", md: "xl", xl: 50 }}
         align="stretch"
         justify="stretch"
+        className={glassBoxClassName}
       >
         <NewClientForm userId={userId} />
         {activeClients.map((client, clientIndex) => (
@@ -45,10 +47,11 @@ export const ClientsList = ({
       <Title mt="30px">Inactive clients</Title>
       <Grid
         columns={12}
-        mt={30}
+        mt={10}
         gutter={{ base: 5, xs: "md", md: "xl", xl: 50 }}
         align="stretch"
         justify="stretch"
+        className={glassBoxClassName}
       >
         {inactiveClients.map((client, clientIndex) => (
           <ClientsItem

@@ -1,11 +1,9 @@
 import { ClientsList } from "@/components/clients-list";
 import { getClients } from "@/handlers/get-clients";
 import { getUser } from "@/handlers/get-user";
-import { Grid, GridCol, RingProgress, Text, Title } from "@mantine/core";
+import { Text, Title } from "@mantine/core";
 import { SKSClient, SKSUser } from "@prisma/client";
 import { ReactNode } from "react";
-
-const maxClients = 20;
 
 export default async function UserPageLayout({
   children,
@@ -28,55 +26,9 @@ export default async function UserPageLayout({
   if (!gotUserData) {
     return <Text>Error finding user</Text>;
   }
-  const getClientUsageData = (clients: typeof clientsData) => {
-    // max is 20
-    if (!clients) return [];
-    const totalClients = clients.length;
-    const usage = (totalClients / maxClients) * 100;
-    const usageColor = usage > 80 ? "red" : "green";
-    return [
-      { value: usage, color: usageColor },
-      { value: 100 - usage, color: "rgba(150, 150, 150, 0.2)" },
-    ];
-  };
   return (
     <>
-      <Grid columns={24} align="center">
-        <GridCol
-          span={{
-            base: 24,
-            lg: 18,
-          }}
-        >
-          <Title mb="15px">
-            Welcome{userData?.name ? ` ${userData.name}` : ""}
-          </Title>
-          <Text>ID: {userData?.id}</Text>
-        </GridCol>
-        <GridCol
-          span={{
-            base: 24,
-            lg: 6,
-          }}
-        >
-          <RingProgress
-            label={
-              <Text size="xs" ta="center">
-                Clients usage
-                <br />
-                <small>(max {maxClients})</small>
-              </Text>
-            }
-            mx={{
-              base: "auto",
-              lg: 0,
-            }}
-            thickness={20}
-            size={200}
-            sections={getClientUsageData(clientsData)}
-          />
-        </GridCol>
-      </Grid>
+      <Title>Welcome {userData?.name ? ` ${userData.name}` : ""}</Title>
       {children}
       {clientsData && userData?.id && (
         <ClientsList userId={userData.id} clients={clientsData} />

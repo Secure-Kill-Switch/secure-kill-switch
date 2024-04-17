@@ -60,9 +60,6 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
         p={10}
         h="100%"
         style={{
-          border: "1px solid",
-          borderColor: "lightgray",
-          borderRadius: "4px",
           cursor: "pointer",
         }}
         align="center"

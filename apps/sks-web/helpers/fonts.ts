@@ -1,4 +1,7 @@
-import { Podkova, Comfortaa } from "next/font/google";
+import { Barlow_Condensed, Montserrat } from "next/font/google";
 
-export const FontHeader = Podkova({ subsets: ["latin-ext"] });
-export const FontBody = Comfortaa({ subsets: ["latin-ext"] });
+export const FontHeader = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: "700",
+});
+export const FontBody = Montserrat({ subsets: ["latin-ext"] });

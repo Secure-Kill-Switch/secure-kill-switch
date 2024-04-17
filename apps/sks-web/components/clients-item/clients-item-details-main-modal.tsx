@@ -47,7 +47,7 @@ export const ClientsItemDetailsMainModal = ({
         }}
         align="center"
       >
-        <ClientIcon size="100px" />
+        <ClientIcon size="100px" strokeWidth={1} />
         <Flex
           direction="column"
           maw="100%"

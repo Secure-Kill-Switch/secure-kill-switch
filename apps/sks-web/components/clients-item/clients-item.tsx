@@ -1,7 +1,8 @@
 import { ClientsItemDetailsMainModalWrapper } from "@/components/clients-item";
 import { clientIconsComponents } from "@/helpers/client-icons";
+import { FontHeader } from "@/helpers/fonts";
 import { timeAgo } from "@/helpers/time-ago";
-import { Box, Flex, GridCol, Indicator, Text } from "@mantine/core";
+import { Box, Flex, GridCol, Text } from "@mantine/core";
 import { SKSClient } from "@prisma/client";
 import dayjs from "dayjs";
 
@@ -32,58 +33,52 @@ export const ClientsItem = ({
           animation: `fadeIn 0.5s ease ${(clientIndex / 2) * 0.1}s 1 normal both`,
         }}
       >
-        <Indicator
-          color="green"
-          size={16}
-          disabled={!isActive}
-          processing={isActive}
-          withBorder
-          h="100%"
-        >
+        <Box pos="relative">
           <ClientsItemDetailsMainModalWrapper client={client} userId={userId}>
             <Box
               p={10}
               h="100%"
               style={{
-                border: "1px solid",
-                borderColor: "lightgray",
-                borderRadius: "4px",
-                overflow: "hidden",
-                position: "relative",
                 cursor: "pointer",
               }}
             >
-              <Flex justify="space-between" direction="column" h="100%">
+              <Flex
+                justify="space-between"
+                direction="column"
+                h="100%"
+                pl="70px"
+              >
                 <ClientIcon
-                  size="100px"
-                  strokeWidth={2}
+                  size="70px"
+                  strokeWidth={1}
                   style={{
                     position: "absolute",
                     bottom: "50%",
-                    marginBottom: "-50px",
-                    right: "10px",
+                    marginBottom: "-35px",
+                    left: "0px",
                   }}
-                  opacity={0.1}
+                  color={isActive ? "teal" : "gray"}
+                  opacity={isActive ? 1 : 0.2}
                 />
                 <Flex direction="row">
                   <Text
-                    mb={10}
+                    mb="5px"
                     mr="50px"
                     opacity={client.name ? 1 : 0.5}
                     size="xl"
+                    lh="sm"
+                    className={FontHeader.className}
                   >
                     {client.name || "Unnamed"}
                   </Text>
                 </Flex>
                 <Box>
-                  <Text size="sm" mt="10px">
-                    {timeAgo(client.lastActive)}
-                  </Text>
+                  <Text size="sm">{timeAgo(client.lastActive)}</Text>
                 </Box>
               </Flex>
             </Box>
           </ClientsItemDetailsMainModalWrapper>
-        </Indicator>
+        </Box>
       </GridCol>
     </>
   );

@@ -12,5 +12,5 @@ export const nameGeneratorOptions = () =>
     dictionaries: [adjectives, colors, animals, names, starWars],
     style: "capital",
     separator: " ",
-    length: Math.floor(Math.random() * 2) + 2,
+    length: 2,
   }) as Config;

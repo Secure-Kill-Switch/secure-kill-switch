@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 
 export const PageContainer = ({ children }: PropsWithChildren) => {
   return (
-    <Container mt={20}>
+    <Container mt="20px" mb="100px">
       <Link
         href="/"
         style={{

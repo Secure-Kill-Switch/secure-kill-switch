@@ -1,0 +1,11 @@
+.glassBoxClass {
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(50px);
+  background: rgba(20, 25, 40, 0.1);
+  box-shadow:
+    0 8px 6px 0 rgba(0, 0, 0, 0.055),
+    inset 0 1px 1px 0 hsla(0, 0%, 100%, 0.23),
+    inset 0 -1px 1px 0 #21293a,
+    inset 2px 3px 3px -3px #5f5a88;
+}

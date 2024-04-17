@@ -1,13 +1,18 @@
 "use client";
+import { GlassBox } from "@/components/glass-box";
 import { NewUserForm } from "@/components/new-user-form";
+import { StatsBox } from "@/components/stats-box";
+import { StatsType, getStats } from "@/handlers/get-stats";
 import { shortenId } from "@/helpers/shorten-id";
-import { Box, Text } from "@mantine/core";
+import { Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { SKSUser } from "@prisma/client";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function HomePage(): JSX.Element {
   const { push } = useRouter();
+  const [stats, setStats] = useState<StatsType | undefined>();
   const onUserCreated = (user: SKSUser) => {
     notifications.show({
       title: "User created",
@@ -18,9 +23,17 @@ export default function HomePage(): JSX.Element {
     });
     push(`/user/${user.id}`);
   };
+  useEffect(() => {
+    const fetchStats = async () => {
+      const response = await getStats();
+      response.body && setStats(response);
+    };
+    fetchStats();
+  }, []);
   return (
     <>
-      <Box mb="20px">
+      <StatsBox stats={stats} />
+      <GlassBox mb="20px">
         <Text mb="10px">
           This app will let you shut down any Windows/MacOS/Linux device using a
           special link. Start by creating a new user ID.
@@ -45,7 +58,7 @@ export default function HomePage(): JSX.Element {
           choose a name for you. It's not technically required but you know...
           we all need names.
         </Text>
-      </Box>
+      </GlassBox>
       <NewUserForm onUserCreated={onUserCreated} />
     </>
   );
