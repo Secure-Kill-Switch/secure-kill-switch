@@ -35,6 +35,7 @@ export const ClientsList = ({
         <NewClientForm userId={userId} />
         {activeClients.map((client, clientIndex) => (
           <ClientsItem
+            key={`client-${client.id}`}
             client={client}
             clientIndex={clientIndex}
             userId={userId}
@@ -51,6 +52,7 @@ export const ClientsList = ({
       >
         {inactiveClients.map((client, clientIndex) => (
           <ClientsItem
+            key={`client-${client.id}`}
             client={client}
             clientIndex={clientIndex}
             userId={userId}

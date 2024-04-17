@@ -1,10 +1,9 @@
-import { ClientsItemDetailsModal } from "@/components/clients-item-details-modal";
+import { ClientsItemDetailsMainModalWrapper } from "@/components/clients-item";
 import { clientIconsComponents } from "@/helpers/client-icons";
 import { timeAgo } from "@/helpers/time-ago";
 import { Box, Flex, GridCol, Indicator, Text } from "@mantine/core";
 import { SKSClient } from "@prisma/client";
 import dayjs from "dayjs";
-import { Fragment } from "react";
 
 export const ClientsItem = ({
   client,
@@ -23,7 +22,7 @@ export const ClientsItem = ({
     : clientIconsComponents["laptop"];
 
   return (
-    <Fragment key={`client-${client.id}`}>
+    <>
       <GridCol
         span={{
           base: 6,
@@ -41,7 +40,7 @@ export const ClientsItem = ({
           withBorder
           h="100%"
         >
-          <ClientsItemDetailsModal client={client} userId={userId}>
+          <ClientsItemDetailsMainModalWrapper client={client} userId={userId}>
             <Box
               p={10}
               h="100%"
@@ -83,9 +82,9 @@ export const ClientsItem = ({
                 </Box>
               </Flex>
             </Box>
-          </ClientsItemDetailsModal>
+          </ClientsItemDetailsMainModalWrapper>
         </Indicator>
       </GridCol>
-    </Fragment>
+    </>
   );
 };

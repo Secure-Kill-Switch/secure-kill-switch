@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "postinstall": "prisma generate",
+    "generate": "prisma generate",
     "migrate": "prisma migrate dev"
   },
   "dependencies": {
