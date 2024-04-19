@@ -1,4 +1,4 @@
-import { ClientsList } from "@/components/clients-list";
+import { ClientsList } from "@/components";
 import { getClients } from "@/handlers/get-clients";
 import { getUser } from "@/handlers/get-user";
 import { Text, Title } from "@mantine/core";

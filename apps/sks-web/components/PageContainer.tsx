@@ -22,3 +22,5 @@ export const PageContainer = ({ children }: PropsWithChildren) => {
     </Container>
   );
 };
+
+PageContainer.displayName = "PageContainer";

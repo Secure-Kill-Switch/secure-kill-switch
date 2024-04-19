@@ -1,7 +1,5 @@
 "use client";
-import { GlassBox } from "@/components/glass-box";
-import { NewUserForm } from "@/components/new-user-form";
-import { StatsBox } from "@/components/stats-box";
+import { GlassBox, NewUserForm, StatsBox } from "@/components";
 import { StatsType, getStats } from "@/handlers/get-stats";
 import { shortenId } from "@/helpers/shorten-id";
 import { Text } from "@mantine/core";

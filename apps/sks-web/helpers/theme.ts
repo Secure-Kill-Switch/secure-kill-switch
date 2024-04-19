@@ -6,4 +6,5 @@ export const sksTheme: MantineThemeOverride = createTheme({
   headings: {
     fontFamily: FontHeader.style.fontFamily,
   },
+  defaultRadius: "16px",
 });

@@ -8,10 +8,10 @@ importers:
 
   .:
     devDependencies:
-      '@repo/eslint-config':
+      '@sks/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@repo/typescript-config':
+      '@sks/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
       prettier:
@@ -69,10 +69,10 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^14.1.1
         version: 14.1.1
-      '@repo/eslint-config':
+      '@sks/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@repo/typescript-config':
+      '@sks/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/eslint':

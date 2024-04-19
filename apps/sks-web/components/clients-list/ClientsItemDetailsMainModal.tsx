@@ -1,5 +1,5 @@
 "use client";
-import { ClientsItemDetailsModalButtons } from "@/components/clients-item";
+import { ClientsItemDetailsModalButtons } from "@/components";
 import { clientIconsComponents } from "@/helpers/client-icons";
 import { timeAgo } from "@/helpers/time-ago";
 import { Badge, CopyButton, Divider, Flex, Modal, Text } from "@mantine/core";

@@ -1,4 +1,4 @@
-import { ClientsItemDetailsMainModalWrapper } from "@/components/clients-item";
+import { ClientsItemDetailsMainModalWrapper } from "@/components";
 import { clientIconsComponents } from "@/helpers/client-icons";
 import { FontHeader } from "@/helpers/fonts";
 import { timeAgo } from "@/helpers/time-ago";

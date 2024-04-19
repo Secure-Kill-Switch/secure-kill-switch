@@ -1,4 +1,4 @@
-import { GlassBox } from "@/components/glass-box";
+import { GlassBox } from "@/components";
 import { StatsType } from "@/handlers/get-stats";
 import { Box, Flex, Text, Title } from "@mantine/core";
 

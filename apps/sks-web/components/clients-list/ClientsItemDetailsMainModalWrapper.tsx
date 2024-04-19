@@ -2,7 +2,7 @@
 import {
   ClientsItemDetailsChangeNameModal,
   ClientsItemDetailsMainModal,
-} from "@/components/clients-item";
+} from "@/components";
 import { Box } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { SKSClient } from "@prisma/client";

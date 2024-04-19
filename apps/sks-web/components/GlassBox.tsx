@@ -1,7 +1,7 @@
 import { Box, BoxComponentProps } from "@mantine/core";
 import { PropsWithChildren } from "react";
 
-import glassBoxClasses from "./glass-box.module.css";
+import glassBoxClasses from "./GlassBox.module.css";
 
 export const glassBoxClassName = glassBoxClasses.glassBoxClass;
 

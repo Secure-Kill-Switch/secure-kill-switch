@@ -3,11 +3,12 @@ import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 import "./animations.css";
 import "./background.css";
+import "./mantine-variables.css";
 import "./reset.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
-import { PageContainer } from "@/components/page-container";
+import { PageContainer } from "@/components";
 import { sksTheme } from "@/helpers/theme";
 import { Notifications } from "@mantine/notifications";
 import type { Metadata } from "next";

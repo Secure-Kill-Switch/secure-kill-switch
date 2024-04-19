@@ -78,8 +78,9 @@ export const ClientsItemDetailsModalButtons = ({
             base: "100%",
             lg: "calc(50% - 5px)",
           }}
+          mr="5px"
         >
-          Change client name
+          Change name
         </Button>
         <Button
           variant="gradient"
@@ -89,6 +90,7 @@ export const ClientsItemDetailsModalButtons = ({
             base: "100%",
             lg: "calc(50% - 5px)",
           }}
+          ml="5px"
         >
           Show notification
         </Button>
@@ -100,6 +102,7 @@ export const ClientsItemDetailsModalButtons = ({
             lg: "calc(50% - 5px)",
           }}
           pos="relative"
+          mr="5px"
         >
           <Button
             variant="gradient"
@@ -108,7 +111,7 @@ export const ClientsItemDetailsModalButtons = ({
             w="100%"
             onClick={() => setHasToConfirmShutdown(true)}
           >
-            Shutdown client
+            Shutdown
           </Button>
           <Button
             variant="gradient"
@@ -136,6 +139,7 @@ export const ClientsItemDetailsModalButtons = ({
             lg: "calc(50% - 5px)",
           }}
           pos="relative"
+          ml="5px"
         >
           <Button
             variant="gradient"
@@ -145,7 +149,7 @@ export const ClientsItemDetailsModalButtons = ({
             w="100%"
             onClick={() => setHasToConfirmRemoval(true)}
           >
-            Remove client
+            Remove
           </Button>
           <Button
             variant="gradient"

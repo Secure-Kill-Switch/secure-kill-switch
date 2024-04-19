@@ -4,13 +4,12 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "dev:web": "turbo dev:web",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@sks/eslint-config": "workspace:*",
+    "@sks/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
