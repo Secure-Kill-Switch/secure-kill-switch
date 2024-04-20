@@ -1,14 +1,14 @@
 "use server";
 import { nameGeneratorOptions } from "@/helpers/name-generator-options";
 import { prisma } from "@/helpers/prisma";
-import { SKSClient } from "@prisma/client";
+import { ClientWithActions } from "@/types/enhanced-client";
 import { uniqueNamesGenerator } from "unique-names-generator";
 
 export async function createClient({
   name: definedName,
   userId,
   icon,
-}: Omit<SKSClient, "id" | "lastActive">) {
+}: Omit<ClientWithActions, "id" | "lastActive">) {
   try {
     if (!userId) {
       return {

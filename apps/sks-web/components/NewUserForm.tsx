@@ -1,6 +1,6 @@
 "use client";
 import { createUser } from "@/handlers/create-user";
-import { Button, Flex, Input, Modal, Text, rem } from "@mantine/core";
+import { Button, Flex, Modal, Text, TextInput, rem } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { SKSUser } from "@prisma/client";
@@ -16,6 +16,14 @@ export const NewUserForm = ({
   const createUserForm = useForm({
     initialValues: {
       name: "",
+    },
+    validate: {
+      name: (value) => {
+        if (value.length > 30) {
+          return "Name is too long";
+        }
+        return null;
+      },
     },
   });
   const [addingUser, setAddingUser] = useState(false);
@@ -64,14 +72,11 @@ export const NewUserForm = ({
               <br />
               If can think of anything, a name will be generated for you.
             </Text>
-            <Input
+            <TextInput
               w="100%"
               mb="20px"
               placeholder="Your (optional) client name"
-              value={createUserForm.values.name}
-              onChange={(event) =>
-                createUserForm.setFieldValue("name", event.currentTarget.value)
-              }
+              {...createUserForm.getInputProps("name")}
             />
             <Button type="submit" loading={addingUser}>
               Create User

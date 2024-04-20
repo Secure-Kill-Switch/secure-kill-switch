@@ -3,11 +3,19 @@ import { createClient } from "@/handlers/create-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
 import { ClientIconsNames, clientIcons } from "@/helpers/client-icons";
 import { shortenId } from "@/helpers/shorten-id";
-import { Button, Chip, Flex, GridCol, Input, Modal, Text } from "@mantine/core";
+import { ClientWithActions } from "@/types/enhanced-client";
+import {
+  Button,
+  Chip,
+  Flex,
+  GridCol,
+  Modal,
+  Text,
+  TextInput,
+} from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
-import { SKSClient } from "@prisma/client";
 import { IconCheck, IconPlus } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -19,7 +27,7 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
   const [selectedClientIcon, setSelectedClientIcon] =
     useState<ClientIconsNames>(Object.keys(clientIcons)[0] as ClientIconsNames);
   const [addingClient, setAddingClient] = useState(false);
-  const onClientCreated = (client: SKSClient) => {
+  const onClientCreated = (client: ClientWithActions) => {
     notifications.show({
       title: "Client created",
       message: client.name
@@ -32,6 +40,14 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
   const createClientForm = useForm({
     initialValues: {
       name: "",
+    },
+    validate: {
+      name: (value) => {
+        if (value.length > 30) {
+          return "Name is too long";
+        }
+        return null;
+      },
     },
   });
   const createClientOnSubmit = async () => {
@@ -90,17 +106,11 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
             <Text size="sm" mb="5px">
               You can specify a clients display name and pick an icon.
             </Text>
-            <Input
+            <TextInput
               w="100%"
               mb="20px"
               placeholder="Your (optional) client name"
-              value={createClientForm.values.name}
-              onChange={(event) =>
-                createClientForm.setFieldValue(
-                  "name",
-                  event.currentTarget.value
-                )
-              }
+              {...createClientForm.getInputProps("name")}
             />
             <Flex
               p="10px"

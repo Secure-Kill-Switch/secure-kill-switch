@@ -2,8 +2,8 @@ import { ClientsItemDetailsMainModalWrapper } from "@/components";
 import { clientIconsComponents } from "@/helpers/client-icons";
 import { FontHeader } from "@/helpers/fonts";
 import { timeAgo } from "@/helpers/time-ago";
+import { ClientWithActions } from "@/types/enhanced-client";
 import { Box, Flex, GridCol, Text } from "@mantine/core";
-import { SKSClient } from "@prisma/client";
 import dayjs from "dayjs";
 
 export const ClientsItem = ({
@@ -11,7 +11,7 @@ export const ClientsItem = ({
   clientIndex,
   userId,
 }: {
-  client: SKSClient;
+  client: ClientWithActions;
   clientIndex: number;
   userId: string;
 }) => {

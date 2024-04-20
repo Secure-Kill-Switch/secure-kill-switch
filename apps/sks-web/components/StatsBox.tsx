@@ -1,6 +1,22 @@
 import { GlassBox } from "@/components";
 import { StatsType } from "@/handlers/get-stats";
-import { Box, Flex, Text, Title } from "@mantine/core";
+import { Box, Flex, Loader, Text, Title } from "@mantine/core";
+
+const StatsInfo = ({ stat, statName }: { stat?: number; statName: string }) =>
+  typeof stat === "number" ? (
+    <Text size="20px" lh="30px">
+      <b>{stat}</b>
+      <br />
+      {statName}
+    </Text>
+  ) : (
+    <Flex direction="column" align="center">
+      <Text size="20px" lh="0px" style={{ visibility: "hidden" }}>
+        {statName}
+      </Text>
+      <Loader color="gray" size="sm" type="bars" />
+    </Flex>
+  );
 
 export const StatsBox = ({ stats }: { stats: StatsType | undefined }) => (
   <GlassBox mt="50vh" mb="30px">
@@ -13,25 +29,13 @@ export const StatsBox = ({ stats }: { stats: StatsType | undefined }) => (
         </Title>
       </Box>
       <Box ta="center">
-        <Text size="20px" lh="30px">
-          <b>{stats?.body.usersCount ?? "-"}</b>
-          <br />
-          users
-        </Text>
+        <StatsInfo stat={stats?.body.usersCount} statName="users" />
       </Box>
       <Box ta="center">
-        <Text size="20px" lh="30px">
-          <b>{stats?.body.clientsCount ?? "-"}</b>
-          <br />
-          clients
-        </Text>
+        <StatsInfo stat={stats?.body.clientsCount} statName="clients" />
       </Box>
       <Box ta="center">
-        <Text size="20px" lh="30px">
-          <b>{stats?.body.actionsCount ?? "-"}</b>
-          <br />
-          actions
-        </Text>
+        <StatsInfo stat={stats?.body.actionsCount} statName="actions" />
       </Box>
     </Flex>
   </GlassBox>

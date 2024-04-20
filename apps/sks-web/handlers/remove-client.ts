@@ -1,11 +1,11 @@
 "use server";
 import { prisma } from "@/helpers/prisma";
-import { SKSClient } from "@prisma/client";
+import { ClientWithActions } from "@/types/enhanced-client";
 
 export async function removeClient({
   userId,
   id,
-}: Pick<SKSClient, "userId" | "id">) {
+}: Pick<ClientWithActions, "userId" | "id">) {
   try {
     if (!userId) {
       return {

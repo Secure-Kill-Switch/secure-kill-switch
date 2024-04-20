@@ -6,8 +6,9 @@ export { StatsBox } from "@/components/StatsBox";
 
 export { ClientIdCopyButton } from "@/components/clients-list/ClientIdCopyButton";
 export { ClientsItem } from "@/components/clients-list/ClientsItem";
-export { ClientsItemDetailsChangeNameModal } from "@/components/clients-list/ClientsItemDetailsChangeNameModal";
-export { ClientsItemDetailsMainModal } from "@/components/clients-list/ClientsItemDetailsMainModal";
-export { ClientsItemDetailsMainModalWrapper } from "@/components/clients-list/ClientsItemDetailsMainModalWrapper";
-export { ClientsItemDetailsModalButtons } from "@/components/clients-list/ClientsItemDetailsModalButtons";
 export { ClientsList } from "@/components/clients-list/ClientsList";
+export { ClientsItemDetailsMainModal } from "@/components/clients-list/modals/ClientsItemDetailsMainModal";
+export { ClientsItemDetailsMainModalWrapper } from "@/components/clients-list/modals/ClientsItemDetailsMainModalWrapper";
+export { ClientsItemDetailsModalButtons } from "@/components/clients-list/modals/ClientsItemDetailsModalButtons";
+export { ClientsItemDetailsRenameModal } from "@/components/clients-list/modals/ClientsItemDetailsRenameModal";
+export { ClientsItemDetailsShowNotificationModal } from "@/components/clients-list/modals/ClientsItemDetailsShowNotificationModal";

@@ -11,6 +11,7 @@ datasource db {
 // action that can be performed on the device
 enum SKSPossibleActions {
   TURN_OFF
+  NOTIFICATION
 }
 
 enum ClientIcons {
@@ -25,17 +26,18 @@ enum ClientIcons {
 model SKSAction {
   id          String        @id @default(uuid())
   action      SKSPossibleActions
-  SKSClient   SKSClient?    @relation(fields: [sKSClientId], references: [id])
-  sKSClientId String?
+  notificationText  String?
+  SKSClient   SKSClient    @relation(fields: [sKSClientId], references: [id])
+  sKSClientId String
 }
 
 // thats a device that can be controlled by the user
 model SKSClient {
   id      String      @id @default(uuid())
-  name    String?
+  name    String
   actions SKSAction[]
-  user    SKSUser?    @relation(fields: [userId], references: [id])
-  userId  String?
+  user    SKSUser    @relation(fields: [userId], references: [id])
+  userId  String
   lastActive DateTime?
   icon ClientIcons @default(laptop)
 }
@@ -43,6 +45,6 @@ model SKSClient {
 // user that can control the devices
 model SKSUser {
   id   String  @id @default(uuid())
-  name String?
+  name String
   clients SKSClient[]
 }

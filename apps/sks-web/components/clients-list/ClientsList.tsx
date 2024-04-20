@@ -1,13 +1,13 @@
 import { ClientsItem, NewClientForm, glassBoxClassName } from "@/components";
+import { ClientWithActions } from "@/types/enhanced-client";
 import { Box, Grid, Title } from "@mantine/core";
-import { SKSClient } from "@prisma/client";
 import dayjs from "dayjs";
 
 export const ClientsList = ({
   clients,
   userId,
 }: {
-  clients: SKSClient[];
+  clients: ClientWithActions[];
   userId: string;
 }) => {
   const activeClients = clients.filter(

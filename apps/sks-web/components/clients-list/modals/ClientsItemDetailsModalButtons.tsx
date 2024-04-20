@@ -2,9 +2,9 @@
 import { removeClient } from "@/handlers/remove-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
 import { shortenId } from "@/helpers/shorten-id";
+import { ClientWithActions } from "@/types/enhanced-client";
 import { Box, Button, Flex } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { SKSClient } from "@prisma/client";
 import {
   IconBell,
   IconCursorText,
@@ -16,11 +16,13 @@ import { useEffect, useState } from "react";
 export const ClientsItemDetailsModalButtons = ({
   client,
   userId,
-  openClientChangeNameModal,
+  openClientRenameModal,
+  openClientNotificationModal,
 }: {
-  client: SKSClient;
+  client: ClientWithActions;
   userId: string;
-  openClientChangeNameModal: () => void;
+  openClientRenameModal: () => void;
+  openClientNotificationModal: () => void;
 }) => {
   const [hasToConfirmShutdown, setHasToConfirmShutdown] = useState(false);
   const [hasToConfirmRemoval, setHasToConfirmRemoval] = useState(false);
@@ -70,10 +72,8 @@ export const ClientsItemDetailsModalButtons = ({
     <>
       <Flex justify="space-between">
         <Button
-          variant="gradient"
-          gradient={{ from: "cyan", to: "teal", deg: 90 }}
           leftSection={<IconCursorText size="18px" />}
-          onClick={openClientChangeNameModal}
+          onClick={openClientRenameModal}
           w={{
             base: "100%",
             lg: "calc(50% - 5px)",
@@ -83,9 +83,8 @@ export const ClientsItemDetailsModalButtons = ({
           Change name
         </Button>
         <Button
-          variant="gradient"
-          gradient={{ from: "teal", to: "cyan", deg: 90 }}
           leftSection={<IconBell size="18px" />}
+          onClick={openClientNotificationModal}
           w={{
             base: "100%",
             lg: "calc(50% - 5px)",
@@ -105,8 +104,6 @@ export const ClientsItemDetailsModalButtons = ({
           mr="5px"
         >
           <Button
-            variant="gradient"
-            gradient={{ from: "cyan", to: "teal", deg: 90 }}
             leftSection={<IconPower size="18px" />}
             w="100%"
             onClick={() => setHasToConfirmShutdown(true)}
@@ -142,8 +139,6 @@ export const ClientsItemDetailsModalButtons = ({
           ml="5px"
         >
           <Button
-            variant="gradient"
-            gradient={{ from: "teal", to: "cyan", deg: 90 }}
             leftSection={<IconEraser size="18px" />}
             loading={removingClient}
             w="100%"

@@ -1,10 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
+  "experimentalUI": true,
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -12,6 +13,10 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "migrate": {
+      "cache": false,
+      "interactive": true
     },
     "clean": {
       "cache": false

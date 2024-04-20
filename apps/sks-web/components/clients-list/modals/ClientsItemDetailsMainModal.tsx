@@ -2,9 +2,9 @@
 import { ClientsItemDetailsModalButtons } from "@/components";
 import { clientIconsComponents } from "@/helpers/client-icons";
 import { timeAgo } from "@/helpers/time-ago";
+import { ClientWithActions } from "@/types/enhanced-client";
 import { Badge, CopyButton, Divider, Flex, Modal, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { SKSClient } from "@prisma/client";
 import { IconCopy } from "@tabler/icons-react";
 
 export const ClientsItemDetailsMainModal = ({
@@ -12,13 +12,15 @@ export const ClientsItemDetailsMainModal = ({
   userId,
   clientModalOpened,
   closeClientModal,
-  openClientChangeNameModal,
+  openClientRenameModal,
+  openClientNotificationModal,
 }: {
-  client: SKSClient;
+  client: ClientWithActions;
   userId: string;
   clientModalOpened: boolean;
   closeClientModal: () => void;
-  openClientChangeNameModal: () => void;
+  openClientRenameModal: () => void;
+  openClientNotificationModal: () => void;
 }) => {
   const ClientIcon = clientIconsComponents[client.icon]
     ? clientIconsComponents[client.icon]
@@ -90,29 +92,49 @@ export const ClientsItemDetailsMainModal = ({
               </Badge>
             )}
           </CopyButton>
-          <Badge
-            style={{
-              textTransform: "none",
-              userSelect: "none",
-              maxWidth: "100%",
-            }}
-            w={{
-              base: "100%",
-              lg: "fit-content",
-            }}
-            size="xl"
-            variant="light"
-            title={`${client.lastActive?.toLocaleDateString()} ${client.lastActive?.toLocaleTimeString()}`}
-          >
-            {timeAgo(client.lastActive)}
-          </Badge>
+          <Flex>
+            <Badge
+              style={{
+                textTransform: "none",
+                userSelect: "none",
+                maxWidth: "100%",
+              }}
+              w={{
+                base: "100%",
+                lg: "fit-content",
+              }}
+              mr="10px"
+              size="xl"
+              variant="light"
+              title={`${client.lastActive?.toLocaleDateString()} ${client.lastActive?.toLocaleTimeString()}`}
+            >
+              {timeAgo(client.lastActive)}
+            </Badge>
+            <Badge
+              style={{
+                textTransform: "none",
+                userSelect: "none",
+                maxWidth: "100%",
+              }}
+              w={{
+                base: "100%",
+                lg: "fit-content",
+              }}
+              size="xl"
+              variant="light"
+            >
+              {client.actions.length ? client.actions.length : "No"}{" "}
+              {client.actions.length === 1 ? "action" : "actions"}
+            </Badge>
+          </Flex>
         </Flex>
       </Flex>
       <Divider mt="20px" mb="20px" />
       <ClientsItemDetailsModalButtons
         client={client}
         userId={userId}
-        openClientChangeNameModal={openClientChangeNameModal}
+        openClientRenameModal={openClientRenameModal}
+        openClientNotificationModal={openClientNotificationModal}
       />
     </Modal>
   );

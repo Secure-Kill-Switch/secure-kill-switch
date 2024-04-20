@@ -2,7 +2,7 @@ import { ClientsList } from "@/components";
 import { getClients } from "@/handlers/get-clients";
 import { getUser } from "@/handlers/get-user";
 import { Text, Title } from "@mantine/core";
-import { SKSClient, SKSUser } from "@prisma/client";
+import { SKSUser } from "@prisma/client";
 import { ReactNode } from "react";
 
 export default async function UserPageLayout({
@@ -20,9 +20,7 @@ export default async function UserPageLayout({
   const userData = gotUserData
     ? (userDataCall.body.data as SKSUser)
     : undefined;
-  const clientsData = gotClientsData
-    ? (clientsDataCall.body.data as SKSClient[])
-    : undefined;
+  const clientsData = gotClientsData ? clientsDataCall.body.data : undefined;
   if (!gotUserData) {
     return <Text>Error finding user</Text>;
   }
