@@ -6,7 +6,8 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "migrate": "turbo migrate",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",
@@ -14,7 +15,7 @@
     "prettier": "^3.2.5",
     "turbo": "^1.13.2"
   },
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "pnpm@9.0.4",
   "engines": {
     "node": ">=20"
   }
