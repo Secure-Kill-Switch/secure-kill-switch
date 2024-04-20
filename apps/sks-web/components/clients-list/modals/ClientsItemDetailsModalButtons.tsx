@@ -16,11 +16,13 @@ import { useEffect, useState } from "react";
 export const ClientsItemDetailsModalButtons = ({
   client,
   userId,
+  closeClientModal,
   openClientRenameModal,
   openClientNotificationModal,
 }: {
   client: ClientWithActions;
   userId: string;
+  closeClientModal: () => void;
   openClientRenameModal: () => void;
   openClientNotificationModal: () => void;
 }) => {
@@ -48,6 +50,7 @@ export const ClientsItemDetailsModalButtons = ({
     });
     revalidateCachePath(`/user/${userId}`);
     setRemovingClient(false);
+    closeClientModal();
   };
   useEffect(() => {
     if (hasToConfirmShutdown) {

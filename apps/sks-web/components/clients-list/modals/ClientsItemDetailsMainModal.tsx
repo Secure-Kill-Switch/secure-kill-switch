@@ -7,6 +7,7 @@ import { ClientWithActions } from "@/types/enhanced-client";
 import { Badge, CopyButton, Divider, Flex, Modal, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCopy } from "@tabler/icons-react";
+import dayjs from "dayjs";
 import { useMemo } from "react";
 
 export const ClientsItemDetailsMainModal = ({
@@ -40,7 +41,9 @@ export const ClientsItemDetailsMainModal = ({
       actions.push(`${executedActions.length} executed`);
     }
     return actions.length > 2 ? actions.join(", ") : actions.join("");
-  }, []);
+  }, [client.actions]);
+  const isActive =
+    !!client.lastActive && dayjs().diff(dayjs(client.lastActive), "minute") < 5;
 
   return (
     <Modal
@@ -67,6 +70,7 @@ export const ClientsItemDetailsMainModal = ({
         align="center"
       >
         <ClientIcon
+          active={isActive}
           icon={client.icon}
           iconProps={{
             size: "100px",
@@ -155,6 +159,7 @@ export const ClientsItemDetailsMainModal = ({
       <ClientsItemDetailsModalButtons
         client={client}
         userId={userId}
+        closeClientModal={closeClientModal}
         openClientRenameModal={openClientRenameModal}
         openClientNotificationModal={openClientNotificationModal}
       />

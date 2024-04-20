@@ -47,6 +47,7 @@ export const ClientsItem = ({
               >
                 <ClientIcon
                   icon={client.icon}
+                  active={isActive}
                   iconProps={{
                     size: "70px",
                     strokeWidth: 1,

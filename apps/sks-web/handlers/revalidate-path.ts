@@ -1,7 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
 
-export const revalidateCachePath = async (path: string) => {
+export const revalidateCachePath = async (path?: string) => {
   try {
     if (path) {
       revalidatePath(path);

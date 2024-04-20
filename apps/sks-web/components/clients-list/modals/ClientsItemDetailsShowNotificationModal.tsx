@@ -45,6 +45,11 @@ export const ClientsItemDetailsShowNotificationModal = ({
     if (showNotificationClientReply.status !== 200) {
       console.error(showNotificationClientReply.body?.message);
       setCreatingNotification(false);
+      notifications.show({
+        title: "Error",
+        message: `Error creating notification for ${client.name}`,
+        color: "red",
+      });
       return;
     }
     if (
@@ -57,7 +62,7 @@ export const ClientsItemDetailsShowNotificationModal = ({
         color: "teal",
       });
       setCreatingNotification(false);
-      revalidateCachePath(`/user/${userId}`);
+      await revalidateCachePath(`/user/${userId}`);
       showNotificationClientForm.reset();
       closeClientShowNotificationModal();
     }
