@@ -1,6 +1,6 @@
 "use client";
 import { ClientsItemDetailsModalButtons } from "@/components";
-import { clientIconsComponents } from "@/helpers/client-icons";
+import { ClientIcon } from "@/components/ClientIcon";
 import { timeAgo } from "@/helpers/time-ago";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Badge, CopyButton, Divider, Flex, Modal, Text } from "@mantine/core";
@@ -22,9 +22,7 @@ export const ClientsItemDetailsMainModal = ({
   openClientRenameModal: () => void;
   openClientNotificationModal: () => void;
 }) => {
-  const ClientIcon = clientIconsComponents[client.icon]
-    ? clientIconsComponents[client.icon]
-    : clientIconsComponents["laptop"];
+  const actionsInfo = `${client.actions.length}`;
 
   return (
     <Modal
@@ -49,7 +47,13 @@ export const ClientsItemDetailsMainModal = ({
         }}
         align="center"
       >
-        <ClientIcon size="100px" strokeWidth={1} />
+        <ClientIcon
+          icon={client.icon}
+          iconProps={{
+            size: "100px",
+            strokeWidth: 1,
+          }}
+        />
         <Flex
           direction="column"
           maw="100%"
@@ -123,8 +127,7 @@ export const ClientsItemDetailsMainModal = ({
               size="xl"
               variant="light"
             >
-              {client.actions.length ? client.actions.length : "No"}{" "}
-              {client.actions.length === 1 ? "action" : "actions"}
+              {actionsInfo}
             </Badge>
           </Flex>
         </Flex>

@@ -1,5 +1,5 @@
 import { ClientsItemDetailsMainModalWrapper } from "@/components";
-import { clientIconsComponents } from "@/helpers/client-icons";
+import { ClientIcon } from "@/components/ClientIcon";
 import { FontHeader } from "@/helpers/fonts";
 import { timeAgo } from "@/helpers/time-ago";
 import { ClientWithActions } from "@/types/enhanced-client";
@@ -17,10 +17,6 @@ export const ClientsItem = ({
 }) => {
   const isActive =
     !!client.lastActive && dayjs().diff(dayjs(client.lastActive), "minute") < 5;
-
-  const ClientIcon = clientIconsComponents[client.icon]
-    ? clientIconsComponents[client.icon]
-    : clientIconsComponents["laptop"];
 
   return (
     <>
@@ -49,16 +45,19 @@ export const ClientsItem = ({
                 pl="70px"
               >
                 <ClientIcon
-                  size="70px"
-                  strokeWidth={1}
-                  style={{
-                    position: "absolute",
-                    bottom: "50%",
-                    marginBottom: "-35px",
-                    left: "0px",
+                  icon={client.icon}
+                  iconProps={{
+                    size: "100px",
+                    strokeWidth: 1,
+                    style: {
+                      position: "absolute",
+                      bottom: "50%",
+                      marginBottom: "-35px",
+                      left: "0px",
+                    },
+                    color: isActive ? "teal" : "gray",
+                    opacity: isActive ? 1 : 0.2,
                   }}
-                  color={isActive ? "teal" : "gray"}
-                  opacity={isActive ? 1 : 0.2}
                 />
                 <Flex direction="row">
                   <Text

@@ -21,6 +21,7 @@ export type ClientIconsComponents = Record<
 >;
 
 export const clientIcons = {
+  // used for the client icons list (while creating a new client)
   laptop: <IconDeviceLaptop />,
   desktop: <IconDeviceDesktop />,
   mac: <IconDeviceImac />,
@@ -29,6 +30,7 @@ export const clientIcons = {
 } as ClientIcons;
 
 export const clientIconsComponents = {
+  // used for the client details
   laptop: IconDeviceLaptop,
   desktop: IconDeviceDesktop,
   mac: IconDeviceImac,

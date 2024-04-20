@@ -3,7 +3,6 @@ import { createClient } from "@/handlers/create-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
 import { ClientIconsNames, clientIcons } from "@/helpers/client-icons";
 import { shortenId } from "@/helpers/shorten-id";
-import { ClientWithActions } from "@/types/enhanced-client";
 import {
   Button,
   Chip,
@@ -16,6 +15,7 @@ import {
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
+import { SKSClient } from "@prisma/client";
 import { IconCheck, IconPlus } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -27,7 +27,7 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
   const [selectedClientIcon, setSelectedClientIcon] =
     useState<ClientIconsNames>(Object.keys(clientIcons)[0] as ClientIconsNames);
   const [addingClient, setAddingClient] = useState(false);
-  const onClientCreated = (client: ClientWithActions) => {
+  const onClientCreated = (client: SKSClient) => {
     notifications.show({
       title: "Client created",
       message: client.name
