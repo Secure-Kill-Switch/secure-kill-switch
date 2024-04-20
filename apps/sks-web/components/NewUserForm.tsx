@@ -1,5 +1,6 @@
 "use client";
 import { createUser } from "@/handlers/create-user";
+import { modalLayers } from "@/helpers/modal-zindex";
 import { Button, Flex, Modal, Text, TextInput, rem } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
@@ -64,6 +65,7 @@ export const NewUserForm = ({
           backgroundOpacity: 0.55,
           blur: 3,
         }}
+        zIndex={modalLayers.first}
       >
         <Form form={createUserForm} onSubmit={createUserOnSubmit}>
           <Flex direction="column">

@@ -13,7 +13,7 @@ export async function getUser({ id }: Optional<Omit<SKSUser, "name">>) {
     };
   }
   try {
-    const getUserResult = await prisma.sKSUser.findUnique({
+    const getUserResult = await prisma.sKSUser.findUniqueOrThrow({
       where: {
         id,
       },

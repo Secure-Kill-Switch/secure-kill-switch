@@ -41,36 +41,28 @@ export const ClientsItem = ({
               <Flex
                 justify="space-between"
                 direction="column"
+                align="center"
                 h="100%"
                 pl="70px"
               >
                 <ClientIcon
                   icon={client.icon}
                   iconProps={{
-                    size: "100px",
+                    size: "70px",
                     strokeWidth: 1,
-                    style: {
-                      position: "absolute",
-                      bottom: "50%",
-                      marginBottom: "-35px",
-                      left: "0px",
-                    },
                     color: isActive ? "teal" : "gray",
                     opacity: isActive ? 1 : 0.2,
                   }}
                 />
-                <Flex direction="row">
-                  <Text
-                    mb="5px"
-                    mr="50px"
-                    opacity={client.name ? 1 : 0.5}
-                    size="xl"
-                    lh="sm"
-                    className={FontHeader.className}
-                  >
-                    {client.name || "Unnamed"}
-                  </Text>
-                </Flex>
+                <Text
+                  mb="5px"
+                  opacity={client.name ? 1 : 0.5}
+                  size="xl"
+                  lh="sm"
+                  className={FontHeader.className}
+                >
+                  {client.name || "Unnamed"}
+                </Text>
                 <Box>
                   <Text size="sm">{timeAgo(client.lastActive)}</Text>
                 </Box>

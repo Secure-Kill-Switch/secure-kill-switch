@@ -2,6 +2,7 @@
 import { createClient } from "@/handlers/create-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
 import { ClientIconsNames, clientIcons } from "@/helpers/client-icons";
+import { modalLayers } from "@/helpers/modal-zindex";
 import { shortenId } from "@/helpers/shorten-id";
 import {
   Button,
@@ -100,6 +101,7 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
           backgroundOpacity: 0.55,
           blur: 3,
         }}
+        zIndex={modalLayers.first}
       >
         <Form form={createClientForm} onSubmit={createClientOnSubmit}>
           <Flex direction="column">

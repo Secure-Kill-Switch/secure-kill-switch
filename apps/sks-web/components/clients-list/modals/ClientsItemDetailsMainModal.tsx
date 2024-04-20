@@ -1,11 +1,13 @@
 "use client";
 import { ClientsItemDetailsModalButtons } from "@/components";
 import { ClientIcon } from "@/components/ClientIcon";
+import { modalLayers } from "@/helpers/modal-zindex";
 import { timeAgo } from "@/helpers/time-ago";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Badge, CopyButton, Divider, Flex, Modal, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCopy } from "@tabler/icons-react";
+import { useMemo } from "react";
 
 export const ClientsItemDetailsMainModal = ({
   client,
@@ -22,7 +24,23 @@ export const ClientsItemDetailsMainModal = ({
   openClientRenameModal: () => void;
   openClientNotificationModal: () => void;
 }) => {
-  const actionsInfo = `${client.actions.length}`;
+  const actionsInfo = useMemo(() => {
+    if (!client.actions.length) return "No actions";
+    const actions: string[] = ["Actions: "];
+    const pendingActions = client.actions?.filter(
+      (action) => !action.isExecuted
+    );
+    const executedActions = client.actions?.filter(
+      (action) => action.isExecuted
+    );
+    if (pendingActions?.length) {
+      actions.push(`${pendingActions.length} pending`);
+    }
+    if (executedActions?.length) {
+      actions.push(`${executedActions.length} executed`);
+    }
+    return actions.length > 2 ? actions.join(", ") : actions.join("");
+  }, []);
 
   return (
     <Modal
@@ -39,6 +57,7 @@ export const ClientsItemDetailsMainModal = ({
         backgroundOpacity: 0.55,
         blur: 3,
       }}
+      zIndex={modalLayers.first}
     >
       <Flex
         direction={{

@@ -1,6 +1,7 @@
 "use client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
 import { showNotificationClient } from "@/handlers/show-notification-client";
+import { modalLayers } from "@/helpers/modal-zindex";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Button, Flex, Modal, Text, TextInput } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
@@ -76,6 +77,7 @@ export const ClientsItemDetailsShowNotificationModal = ({
         backgroundOpacity: 0.55,
         blur: 3,
       }}
+      zIndex={modalLayers.second}
     >
       <Form
         form={showNotificationClientForm}

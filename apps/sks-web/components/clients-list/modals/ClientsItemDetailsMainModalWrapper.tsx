@@ -33,14 +33,6 @@ export const ClientsItemDetailsMainModalWrapper = ({
   return (
     <>
       <Box onClick={openClientModal}>{children}</Box>
-      <ClientsItemDetailsMainModal
-        client={client}
-        clientModalOpened={clientModalOpened}
-        closeClientModal={closeClientModal}
-        userId={userId}
-        openClientRenameModal={openClientRenameModal}
-        openClientNotificationModal={openClientNotificationModal}
-      />
       <ClientsItemDetailsRenameModal
         client={client}
         clientRenameModalOpened={clientRenameModalOpened}
@@ -52,6 +44,14 @@ export const ClientsItemDetailsMainModalWrapper = ({
         clientShowNotificationModalOpened={clientShowNotificationModalOpened}
         closeClientShowNotificationModal={closeClientShowNotificationModal}
         userId={userId}
+      />
+      <ClientsItemDetailsMainModal
+        client={client}
+        clientModalOpened={clientModalOpened}
+        closeClientModal={closeClientModal}
+        userId={userId}
+        openClientRenameModal={openClientRenameModal}
+        openClientNotificationModal={openClientNotificationModal}
       />
     </>
   );
