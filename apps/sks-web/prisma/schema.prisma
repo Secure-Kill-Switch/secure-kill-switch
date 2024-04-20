@@ -27,6 +27,7 @@ model SKSAction {
   id          String        @id @default(uuid())
   action      SKSPossibleActions
   notificationText  String?
+  isExecuted  Boolean @default(false)
   SKSClient   SKSClient    @relation(fields: [sKSClientId], references: [id])
   sKSClientId String
 }
