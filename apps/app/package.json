@@ -1,0 +1,17 @@
+{
+  "name": "@sks/app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tauri dev",
+    "build-app": "tauri build",
+    "next-dev": "next dev --turbo -p 3001",
+    "next-build": "next build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@sks/eslint-config": "workspace:*",
+    "@sks/typescript-config": "workspace:*",
+    "@tauri-apps/cli": "^1.5.11"
+  }
+}

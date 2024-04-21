@@ -1,1 +1,1 @@
-# SKS started with Turborepo starter
+# SKS

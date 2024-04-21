@@ -1,0 +1,21 @@
+{
+  "name": "@sks/web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "postinstall": "prisma generate",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "unique-names-generator": "^4.7.1"
+  },
+  "devDependencies": {
+    "@sks/eslint-config": "workspace:*",
+    "@sks/typescript-config": "workspace:*"
+  }
+}
