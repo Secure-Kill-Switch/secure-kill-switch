@@ -1,7 +1,7 @@
 "use server";
 import { nameGeneratorOptions } from "@/helpers/name-generator-options";
-import { prisma } from "@/helpers/prisma";
-import { SKSUser } from "@prisma/client";
+import { prisma } from "@sks/database";
+import { SKSUser } from "@sks/database/generated/prisma-client";
 import { uniqueNamesGenerator } from "unique-names-generator";
 
 export async function createUser({ name: definedName }: Omit<SKSUser, "id">) {

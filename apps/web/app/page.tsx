@@ -4,7 +4,7 @@ import { StatsType, getStats } from "@/handlers/get-stats";
 import { shortenId } from "@/helpers/shorten-id";
 import { Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { SKSUser } from "@prisma/client";
+import { SKSUser } from "@sks/database/generated/prisma-client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

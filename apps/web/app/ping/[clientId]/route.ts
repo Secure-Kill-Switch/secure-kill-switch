@@ -1,4 +1,4 @@
-import { prisma } from "@/helpers/prisma";
+import { prisma } from "@sks/database";
 
 type PingParams = {
   clientId: string;

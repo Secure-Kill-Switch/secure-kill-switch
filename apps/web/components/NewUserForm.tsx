@@ -4,14 +4,13 @@ import { modalLayers } from "@/helpers/modal-zindex";
 import { Button, Flex, Modal, Text, TextInput, rem } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { SKSUser } from "@prisma/client";
+import { SKSUser } from "@sks/database/generated/prisma-client";
 import { IconUser } from "@tabler/icons-react";
 import { useState } from "react";
 
 export const NewUserForm = ({
   onUserCreated,
 }: {
-  // eslint-disable-next-line no-unused-vars
   onUserCreated: (client: SKSUser) => void;
 }) => {
   const createUserForm = useForm({

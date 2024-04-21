@@ -1,7 +1,7 @@
 "use server";
 import { nameGeneratorOptions } from "@/helpers/name-generator-options";
-import { prisma } from "@/helpers/prisma";
-import { SKSClient } from "@prisma/client";
+import { prisma } from "@sks/database";
+import { SKSClient } from "@sks/database/generated/prisma-client";
 import { uniqueNamesGenerator } from "unique-names-generator";
 
 export async function createClient({

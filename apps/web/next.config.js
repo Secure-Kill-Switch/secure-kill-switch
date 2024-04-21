@@ -4,8 +4,11 @@ module.exports = {
   experimental: {
     optimizePackageImports: [
       "@mantine/core",
-      "@mantine/hooks",
+      "@mantine/dates",
       "@mantine/form",
+      "@mantine/hooks",
+      "@mantine/notifications",
+      "@tabler/icons-react",
     ],
   },
 };

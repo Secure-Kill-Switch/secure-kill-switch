@@ -1,0 +1,28 @@
+{
+  "name": "@sks/database",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "dev": "tsup --watch",
+    "format": "prisma format",
+    "generate": "prisma generate",
+    "lint": "eslint ./src --fix",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@sks/typescript-config": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2"
+  }
+}

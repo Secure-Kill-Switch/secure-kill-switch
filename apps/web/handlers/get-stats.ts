@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@/helpers/prisma";
+import { prisma } from "@sks/database";
 
 export async function getStats() {
   try {

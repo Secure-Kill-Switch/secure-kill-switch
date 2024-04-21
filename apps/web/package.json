@@ -6,13 +6,10 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "postinstall": "prisma generate",
-    "generate": "prisma generate",
-    "migrate": "prisma migrate dev"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "unique-names-generator": "^4.7.1"
+    "@sks/database": "workspace:*"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",
