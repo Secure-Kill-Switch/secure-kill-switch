@@ -1,7 +1,7 @@
 "use client";
 import { removeClient } from "@/handlers/remove-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
-import { shortenId } from "@/helpers/shorten-id";
+import { shortenId } from "@/helpers";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Box, Button, Flex } from "@mantine/core";
 import { notifications } from "@mantine/notifications";

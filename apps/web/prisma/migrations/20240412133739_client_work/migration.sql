@@ -1,5 +1,0 @@
--- AlterTable
-ALTER TABLE "SKSClient" ADD COLUMN     "userId" TEXT;
-
--- AddForeignKey
-ALTER TABLE "SKSClient" ADD CONSTRAINT "SKSClient_userId_fkey" FOREIGN KEY ("userId") REFERENCES "SKSUser"("id") ON DELETE SET NULL ON UPDATE CASCADE;

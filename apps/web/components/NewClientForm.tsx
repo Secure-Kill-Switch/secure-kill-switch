@@ -1,9 +1,12 @@
 "use client";
 import { createClient } from "@/handlers/create-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
-import { ClientIconsNames, clientIcons } from "@/helpers/client-icons";
-import { modalLayers } from "@/helpers/modal-zindex";
-import { shortenId } from "@/helpers/shorten-id";
+import {
+  ClientIconsNames,
+  clientIcons,
+  modalLayers,
+  shortenId,
+} from "@/helpers";
 import {
   Button,
   Chip,

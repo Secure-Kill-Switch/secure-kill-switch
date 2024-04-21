@@ -1,6 +1,6 @@
 "use client";
 import { createUser } from "@/handlers/create-user";
-import { modalLayers } from "@/helpers/modal-zindex";
+import { modalLayers } from "@/helpers";
 import { Button, Flex, Modal, Text, TextInput, rem } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";

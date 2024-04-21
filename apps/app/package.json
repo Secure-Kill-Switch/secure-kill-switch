@@ -8,7 +8,9 @@
     "next-dev": "next dev --turbo -p 3001",
     "next-build": "next build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@sks/web": "workspace:*"
+  },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",
     "@sks/typescript-config": "workspace:*",

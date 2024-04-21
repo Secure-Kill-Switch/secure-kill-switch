@@ -1,7 +1,7 @@
 "use client";
 import { renameClient } from "@/handlers/change-name-client";
 import { revalidateCachePath } from "@/handlers/revalidate-path";
-import { modalLayers } from "@/helpers/modal-zindex";
+import { modalLayers } from "@/helpers";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Button, Flex, Modal, Text, TextInput } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";

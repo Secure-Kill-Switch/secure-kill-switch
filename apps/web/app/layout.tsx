@@ -9,7 +9,7 @@ import "./reset.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { PageContainer } from "@/components";
-import { sksTheme } from "@/helpers/theme";
+import { sksTheme } from "@/helpers";
 import { Notifications } from "@mantine/notifications";
 import type { Metadata } from "next";
 

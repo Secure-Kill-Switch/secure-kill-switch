@@ -1,6 +1,6 @@
 "use client";
 
-import { shortenId } from "@/helpers/shorten-id";
+import { shortenId } from "@/helpers";
 import { CopyButton, Flex, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCopy } from "@tabler/icons-react";

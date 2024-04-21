@@ -1,8 +1,7 @@
 "use client";
 import { ClientsItemDetailsModalButtons } from "@/components";
 import { ClientIcon } from "@/components/ClientIcon";
-import { modalLayers } from "@/helpers/modal-zindex";
-import { timeAgo } from "@/helpers/time-ago";
+import { modalLayers, timeAgo } from "@/helpers";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Badge, CopyButton, Divider, Flex, Modal, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";

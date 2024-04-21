@@ -101,6 +101,10 @@ importers:
         version: 5.4.5
 
   apps/app:
+    dependencies:
+      '@sks/web':
+        specifier: workspace:*
+        version: link:../web
     devDependencies:
       '@sks/eslint-config':
         specifier: workspace:*

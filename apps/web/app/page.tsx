@@ -1,7 +1,7 @@
 "use client";
 import { GlassBox, NewUserForm, StatsBox } from "@/components";
 import { StatsType, getStats } from "@/handlers/get-stats";
-import { shortenId } from "@/helpers/shorten-id";
+import { shortenId } from "@/helpers";
 import { Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { SKSUser } from "@sks/database/generated/prisma-client";

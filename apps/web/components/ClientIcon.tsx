@@ -1,7 +1,4 @@
-import {
-  ClientIconsNames,
-  clientIconsComponents,
-} from "@/helpers/client-icons";
+import { ClientIconsNames, clientIconsComponents } from "@/helpers";
 import { IconProps } from "@tabler/icons-react";
 
 export const ClientIcon = ({

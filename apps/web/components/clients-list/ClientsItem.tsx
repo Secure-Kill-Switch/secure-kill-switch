@@ -1,7 +1,6 @@
 import { ClientsItemDetailsMainModalWrapper } from "@/components";
 import { ClientIcon } from "@/components/ClientIcon";
-import { FontHeader } from "@/helpers/fonts";
-import { timeAgo } from "@/helpers/time-ago";
+import { FontHeader, timeAgo } from "@/helpers";
 import { ClientWithActions } from "@/types/enhanced-client";
 import { Box, Flex, GridCol, Text } from "@mantine/core";
 import dayjs from "dayjs";

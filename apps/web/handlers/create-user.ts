@@ -1,5 +1,5 @@
 "use server";
-import { nameGeneratorOptions } from "@/helpers/name-generator-options";
+import { nameGeneratorOptions } from "@/helpers";
 import { prisma } from "@sks/database";
 import { SKSUser } from "@sks/database/generated/prisma-client";
 import { uniqueNamesGenerator } from "unique-names-generator";
