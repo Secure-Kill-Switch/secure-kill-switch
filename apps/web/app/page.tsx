@@ -1,9 +1,9 @@
 "use client";
-import { GlassBox, NewUserForm, StatsBox } from "@/components";
-import { StatsType, getStats } from "@/handlers/get-stats";
-import { shortenId } from "@/helpers";
 import { Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
+import { GlassBox, NewUserForm, StatsBox } from "@sks/common/components";
+import { StatsType, getStats } from "@sks/common/handlers";
+import { shortenId } from "@sks/common/helpers";
 import { SKSUser } from "@sks/database/generated/prisma-client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

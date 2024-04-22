@@ -9,7 +9,7 @@
     "next-build": "next build"
   },
   "dependencies": {
-    "@sks/web": "workspace:*"
+    "@sks/common": "workspace:*"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",

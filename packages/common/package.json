@@ -1,0 +1,46 @@
+{
+  "name": "@sks/common",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./helpers": {
+      "import": "./helpers/index.ts",
+      "types": "./dist/helpers/index.ts"
+    },
+    "./handlers": {
+      "import": "./handlers/index.ts",
+      "types": "./dist/handlers/index.ts"
+    },
+    "./types": {
+      "import": "./types/index.ts",
+      "types": "./dist/types/index.ts"
+    },
+    "./components": {
+      "import": "./components/index.ts",
+      "types": "./dist/components/index.ts"
+    },
+    "./animations.css": {
+      "import": "./css/animations.css"
+    },
+    "./mantine-variables.css": {
+      "import": "./css/mantine-variables.css"
+    },
+    "./reset.css": {
+      "import": "./css/reset.css"
+    },
+    "./background.css": {
+      "import": "./css/background.css"
+    }
+  },
+  "dependencies": {
+    "@sks/database": "workspace:*",
+    "@sks/typescript-config": "workspace:*"
+  }
+}

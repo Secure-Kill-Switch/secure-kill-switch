@@ -1,6 +1,6 @@
 {
   "name": "@sks/database",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,7 +16,6 @@
     "dev": "tsup --watch",
     "format": "prisma format",
     "generate": "prisma generate",
-    "lint": "eslint ./src --fix",
     "studio": "prisma studio"
   },
   "dependencies": {

@@ -5,33 +5,11 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
-  },
-  "exports": {
-    "./helpers": {
-      "import": "./helpers/index.ts",
-      "types": "./helpers/index.ts"
-    },
-    "./components": {
-      "import": "./components/index.ts",
-      "types": "./components/index.ts"
-    },
-    "./animations.css": {
-      "import": "./app/animations.css"
-    },
-    "./mantine-variables.css": {
-      "import": "./app/mantine-variables.css"
-    },
-    "./reset.css": {
-      "import": "./app/reset.css"
-    },
-    "./background.css": {
-      "import": "./app/background.css"
-    }
+    "start": "next start"
   },
   "dependencies": {
-    "@sks/database": "workspace:*"
+    "@sks/database": "workspace:*",
+    "@sks/common": "workspace:*"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",

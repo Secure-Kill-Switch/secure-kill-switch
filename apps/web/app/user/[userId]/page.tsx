@@ -1,6 +1,6 @@
 "use client";
-import { revalidateCachePath } from "@/handlers/revalidate-path";
 import { useInterval } from "@mantine/hooks";
+import { revalidateCachePath } from "@sks/common/handlers";
 import { ReactNode, useEffect } from "react";
 
 export default function UserPage({

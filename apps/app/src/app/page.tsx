@@ -1,5 +1,5 @@
 import { Button, Group, Text, TextInput } from "@mantine/core";
-import { GlassBox } from "@sks/web/components";
+import { GlassBox } from "@sks/common/components";
 
 export default function Home() {
   return (

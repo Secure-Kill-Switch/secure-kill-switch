@@ -1,16 +1,18 @@
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
-import "@sks/web/animations.css";
-import "@sks/web/background.css";
-import "@sks/web/mantine-variables.css";
-import "@sks/web/reset.css";
+
+import "@sks/common/animations.css";
+import "@sks/common/background.css";
+import "@sks/common/mantine-variables.css";
+import "@sks/common/reset.css";
+
+import { PageContainer } from "@sks/common/components";
+import { sksTheme } from "@sks/common/helpers";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { Notifications } from "@mantine/notifications";
-import { PageContainer } from "@sks/web/components";
-import { sksTheme } from "@sks/web/helpers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

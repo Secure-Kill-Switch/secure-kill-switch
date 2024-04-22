@@ -1,7 +1,6 @@
-import { ClientsList } from "@/components";
-import { getClients } from "@/handlers/get-clients";
-import { getUser } from "@/handlers/get-user";
 import { Text, Title } from "@mantine/core";
+import { ClientsList } from "@sks/common/components";
+import { getClients, getUser } from "@sks/common/handlers";
 import { SKSUser } from "@sks/database/generated/prisma-client";
 import { ReactNode } from "react";
 

@@ -1,15 +1,17 @@
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
-import "./animations.css";
-import "./background.css";
-import "./mantine-variables.css";
-import "./reset.css";
+
+import "@sks/common/animations.css";
+import "@sks/common/background.css";
+import "@sks/common/mantine-variables.css";
+import "@sks/common/reset.css";
+
+import { PageContainer } from "@sks/common/components";
+import { sksTheme } from "@sks/common/helpers";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
-import { PageContainer } from "@/components";
-import { sksTheme } from "@/helpers";
 import { Notifications } from "@mantine/notifications";
 import type { Metadata } from "next";
 
