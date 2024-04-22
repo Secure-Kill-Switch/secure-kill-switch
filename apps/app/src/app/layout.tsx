@@ -1,3 +1,4 @@
+"use client";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
@@ -13,13 +14,8 @@ import { sksTheme } from "@sks/common/helpers";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { Notifications } from "@mantine/notifications";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Secure Kill Switch",
-  description:
-    "Secure Kill Switch - Turn off your computer with a single click.",
-};
+export const dynamic = "force-dynamic";
 
 export default function RootLayout({
   children,

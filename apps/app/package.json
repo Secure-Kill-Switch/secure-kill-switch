@@ -9,7 +9,8 @@
     "next-build": "next build"
   },
   "dependencies": {
-    "@sks/common": "workspace:*"
+    "@sks/common": "workspace:*",
+    "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",

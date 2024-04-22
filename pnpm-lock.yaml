@@ -105,6 +105,9 @@ importers:
       '@sks/common':
         specifier: workspace:*
         version: link:../../packages/common
+      tauri-plugin-store-api:
+        specifier: github:tauri-apps/tauri-plugin-store
+        version: https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/b1ce9b38662a2990dddb30de1af88509a45e4625
     devDependencies:
       '@sks/eslint-config':
         specifier: workspace:*
@@ -725,6 +728,10 @@ packages:
 
   '@tabler/icons@3.2.0':
     resolution: {integrity: sha512-h8GQ2rtxgiSjltrVz4vcopAxTPSpUSUi5nBfJ09H3Bk4fJk6wZ/dVUjzhv/BHfDwGTkAxZBiYe/Q/T95cPeg5Q==}
+
+  '@tauri-apps/api@1.5.3':
+    resolution: {integrity: sha512-zxnDjHHKjOsrIzZm6nO5Xapb/BxqUq1tc7cGkFXsFkGTsSWgCPH1D8mm0XS9weJY2OaR73I3k3S+b7eSzJDfqA==}
+    engines: {node: '>= 14.6.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
 
   '@tauri-apps/cli-darwin-arm64@1.5.11':
     resolution: {integrity: sha512-2NLSglDb5VfvTbMtmOKWyD+oaL/e8Z/ZZGovHtUFyUSFRabdXc6cZOlcD1BhFvYkHqm+TqGaz5qtPR5UbqDs8A==}
@@ -2545,6 +2552,10 @@ packages:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
 
+  tauri-plugin-store-api@https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/b1ce9b38662a2990dddb30de1af88509a45e4625:
+    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/b1ce9b38662a2990dddb30de1af88509a45e4625}
+    version: 0.0.0
+
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
@@ -3299,6 +3310,8 @@ snapshots:
       react: 18.2.0
 
   '@tabler/icons@3.2.0': {}
+
+  '@tauri-apps/api@1.5.3': {}
 
   '@tauri-apps/cli-darwin-arm64@1.5.11':
     optional: true
@@ -5459,6 +5472,10 @@ snapshots:
   tabbable@6.2.0: {}
 
   tapable@2.2.1: {}
+
+  tauri-plugin-store-api@https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/b1ce9b38662a2990dddb30de1af88509a45e4625:
+    dependencies:
+      '@tauri-apps/api': 1.5.3
 
   text-table@0.2.0: {}
 
