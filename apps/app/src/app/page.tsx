@@ -1,74 +1,49 @@
 "use client";
-import { Button, Group, Text, TextInput } from "@mantine/core";
-import { Form, useForm } from "@mantine/form";
-import { GlassBox } from "@sks/common/components";
-import { useEffect, useState } from "react";
-import { Store } from "tauri-plugin-store-api";
 
-const store = new Store(".sks-settings.dat");
+import { ClientView } from "@/components/ClientView";
+import { LoginView } from "@/components/LoginView";
+import { executeAction } from "@/helpers/executeAction";
+import { ping } from "@/helpers/ping";
+import { clientDataStore } from "@/helpers/store";
+import { GlassBox } from "@sks/common/components";
+import { AppClientData } from "@sks/common/types";
+import { useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";
 
 export default function Home() {
-  const [clientId, setClientId] = useState<string | null>();
-  const clientIdForm = useForm({
-    initialValues: {
-      clientId: "",
-    },
-    validate: {
-      clientId: (value) => {
-        if (!value) return "Client ID is required";
-        return null;
-      },
-    },
-  });
-  const saveClientIdOnSubmit = async () => {
-    console.log("saveClientIdOnSubmit");
-    await store.set("clientId", clientIdForm.values.clientId);
-    await store.save();
-    setClientId(clientIdForm.values.clientId);
+  const [clientData, setClientData] = useState<AppClientData | undefined>();
+  const [gettingClientData, setGettingClientData] = useState(false);
+  const handlePingData = (pingClientData?: AppClientData) => {
+    setClientData(pingClientData);
+    setGettingClientData(false);
+    void clientDataStore.set(pingClientData);
+    pingClientData?.actions.map(executeAction);
   };
-  const resetClientId = async () => {
-    setClientId(null);
-    await store.delete("clientId");
+  const saveClientIdOnSubmit = (clientId: string) => {
+    setGettingClientData(true);
+    ping(clientId).then(handlePingData);
+  };
+  const clearClientId = () => {
+    setClientData(undefined);
+    void clientDataStore.delete();
   };
   useEffect(() => {
-    (async () => {
-      const clientId = (await store.get("clientId")) as string | null;
-      if (clientId !== null) {
-        clientIdForm.setValues({ clientId });
-        setClientId(clientId);
+    clientDataStore.get().then((clientData) => {
+      if (!gettingClientData && clientData) {
+        setGettingClientData(true);
+        setClientData(clientData);
+        ping(clientData.id).then(handlePingData);
       }
-    })();
+    });
   }, []);
   return (
     <GlassBox mb="20px">
-      {clientId && (
-        <>
-          <Text>Your ID is {clientId}. You're all set.</Text>
-          <Button variant="light" onClick={resetClientId}>
-            Reset Client ID
-          </Button>
-        </>
-      )}
-      {!clientId && (
-        <>
-          <Text>Insert your Client ID</Text>
-          <Form form={clientIdForm} onSubmit={saveClientIdOnSubmit}>
-            <Group>
-              <TextInput
-                placeholder="Client ID"
-                w="100%"
-                mr="10px"
-                {...clientIdForm.getInputProps("clientId")}
-              />
-              <Button variant="light" type="submit">
-                Connect
-              </Button>
-            </Group>
-          </Form>
-        </>
-      )}
+      <ClientView clientData={clientData} clearClientId={clearClientId} />
+      <LoginView
+        clientData={clientData}
+        saveClientIdOnSubmit={saveClientIdOnSubmit}
+      />
     </GlassBox>
   );
 }

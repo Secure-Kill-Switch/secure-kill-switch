@@ -11,4 +11,12 @@ module.exports = {
       "@tabler/icons-react",
     ],
   },
+  headers: async () => {
+    return [
+      {
+        source: "/ping/:clientid*",
+        headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
+      },
+    ];
+  },
 };

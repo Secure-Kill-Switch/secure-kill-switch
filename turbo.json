@@ -4,7 +4,7 @@
   "experimentalUI": true,
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["prebuild", "^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "lint": {

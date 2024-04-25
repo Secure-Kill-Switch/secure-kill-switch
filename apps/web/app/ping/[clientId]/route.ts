@@ -24,6 +24,11 @@ export async function GET(
     });
   }
   try {
+    const actions = await prisma.sKSAction.findMany({
+      where: {
+        id: clientId,
+      },
+    });
     const updateLastPing = await prisma.sKSClient.update({
       where: {
         id: clientId,
@@ -33,7 +38,10 @@ export async function GET(
         lastActive: new Date(),
       },
     });
-    return new Response(JSON.stringify(updateLastPing), { status: 200 });
+    const response = { ...updateLastPing, actions };
+    return new Response(JSON.stringify(response), {
+      status: 200,
+    });
   } catch (error) {
     return new Response(
       JSON.stringify({ message: "Error updating client", error, clientData }),
