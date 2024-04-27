@@ -1,17 +1,38 @@
-import { AppClientData } from "@sks/common/types";
+import { dbRealtime } from "@/helpers/realtime";
+import { SKSAction } from "@sks/database/generated/prisma-client";
 import { sendNotification } from "@tauri-apps/api/notification";
 
-export const executeAction = async (
-  action: AppClientData["actions"][number]
+export const markActionsAsExecuted = async (
+  executedActionsList: SKSAction[]
 ) => {
-  if (action.isExecuted) {
+  if (!executedActionsList.length) {
     return;
   }
-  if (action.notificationText) {
-    sendNotification({
-      title: "Secure Kill Switch Notification",
-      body: action.notificationText,
-      sound: "default",
-    });
+  await dbRealtime.from("SKSAction").upsert(
+    executedActionsList.map((action) => ({
+      ...action,
+      isExecuted: true,
+    }))
+  );
+};
+
+export const executeActions = async (actions?: SKSAction[]) => {
+  const actionsExecuted: SKSAction[] = [];
+  if (!actions) {
+    return;
   }
+  actions?.forEach((action) => {
+    if (!action || action.isExecuted) {
+      return;
+    }
+    if (action.notificationText) {
+      sendNotification({
+        title: "Secure Kill Switch Notification",
+        body: action.notificationText,
+        sound: "default",
+      });
+      actionsExecuted.push(action);
+    }
+  });
+  await markActionsAsExecuted(actionsExecuted);
 };

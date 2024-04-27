@@ -29,7 +29,7 @@ export default function HomePage(): JSX.Element {
     fetchStats();
   }, []);
   return (
-    <PageContainer>
+    <PageContainer noPadding>
       <Title
         size="50px"
         mt="100px"
@@ -40,7 +40,7 @@ export default function HomePage(): JSX.Element {
         with a link
       </Title>
       <Text size="22px" style={{ textTransform: "initial" }} mb="8px">
-        - forever free
+        - free forever
       </Text>
       <Text size="22px" style={{ textTransform: "initial" }} mb="8px">
         - open source

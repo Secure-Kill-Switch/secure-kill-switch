@@ -1,18 +1,20 @@
 import { RealtimeComponent } from "@/components/RealtimeComponent";
-import { Button, Title } from "@mantine/core";
+import { Button } from "@mantine/core";
 import { AppClientData } from "@sks/common/types";
 import {
   isPermissionGranted,
   requestPermission,
 } from "@tauri-apps/api/notification";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 export const ClientView = ({
   clientData,
   clearClientId,
+  setClientData,
 }: {
   clientData?: AppClientData;
   clearClientId: () => void;
+  setClientData: Dispatch<SetStateAction<AppClientData | undefined>>;
 }) => {
   const [notificationPermission, setNotificationPermission] = useState(false);
   useEffect(() => {
@@ -27,7 +29,6 @@ export const ClientView = ({
   if (!clientData?.id) return null;
   return (
     <>
-      <Title>Hello {clientData.name}</Title>
       <Button variant="light" onClick={clearClientId} mt="15px">
         Reset Client ID
       </Button>
@@ -41,7 +42,10 @@ export const ClientView = ({
           ? "Notifications enabled"
           : "Enable notifications"}
       </Button>
-      <RealtimeComponent clientId={clientData.id} />
+      <RealtimeComponent
+        clientData={clientData}
+        setClientData={setClientData}
+      />
     </>
   );
 };

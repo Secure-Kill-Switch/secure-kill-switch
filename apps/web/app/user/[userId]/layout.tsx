@@ -24,7 +24,7 @@ export default async function UserPageLayout({
     return <Text>Error finding user</Text>;
   }
   return (
-    <PageContainer userName={userData?.name}>
+    <PageContainer userName={userData?.name} noPadding>
       {children}
       {clientsData && userData?.id && (
         <ClientsList userId={userData.id} clients={clientsData} />

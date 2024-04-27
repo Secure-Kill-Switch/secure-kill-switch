@@ -26,7 +26,7 @@ export async function GET(
   try {
     const actions = await prisma.sKSAction.findMany({
       where: {
-        id: clientId,
+        sKSClientId: clientId,
       },
     });
     const updateLastPing = await prisma.sKSClient.update({

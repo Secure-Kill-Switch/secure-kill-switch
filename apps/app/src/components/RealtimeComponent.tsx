@@ -1,31 +1,38 @@
-import { executeAction } from "@/helpers/executeAction";
+import { executeActions } from "@/helpers/executeAction";
 import { dbRealtime } from "@/helpers/realtime";
+import { AppClientData } from "@sks/common/types";
 import { SKSAction } from "@sks/database/generated/prisma-client";
-import { useEffect, useState } from "react";
+import { REALTIME_LISTEN_TYPES } from "@supabase/supabase-js";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-export const RealtimeComponent = ({ clientId }: { clientId: string }) => {
+export const RealtimeComponent = ({
+  clientData,
+  setClientData,
+}: {
+  clientData: AppClientData;
+  setClientData: Dispatch<SetStateAction<AppClientData | undefined>>;
+}) => {
   const [actions, setActions] = useState<SKSAction[]>([]);
   useEffect(() => {
-    actions.map(executeAction);
+    executeActions(actions);
   }, [actions]);
   useEffect(() => {
-    const realtimeConnection = dbRealtime
-      .channel(`realtime:${clientId}`)
+    const actionsConnection = dbRealtime
+      .channel(`realtime:${clientData.id}`)
       .on(
-        "postgres_changes",
+        REALTIME_LISTEN_TYPES.POSTGRES_CHANGES,
         {
           event: "INSERT",
           schema: "public",
           table: "SKSAction",
-          filter: `sKSClientId=eq.${clientId}`,
+          filter: `sKSClientId=eq.${clientData.id}`,
         },
         (payload: { new: SKSAction }) => {
           setActions((prev) => [...prev, payload.new]);
         }
-      )
-      .subscribe();
+      );
     return () => {
-      realtimeConnection.unsubscribe();
+      actionsConnection.unsubscribe();
     };
   }, []);
   if (process.env.NEXT_PUBLIC_DEBUG_REALTIME) {
