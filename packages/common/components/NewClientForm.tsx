@@ -1,13 +1,5 @@
 "use client";
-import {
-  Button,
-  Chip,
-  Flex,
-  GridCol,
-  Modal,
-  Text,
-  TextInput,
-} from "@mantine/core";
+import { Box, Button, Chip, Flex, Modal, Text, TextInput } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
@@ -68,27 +60,14 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
     }
   };
   return (
-    <GridCol
-      key="new-client-form"
-      span={{
-        base: 6,
-        lg: 4,
-      }}
-    >
-      <Flex
-        p={10}
-        h="100%"
-        style={{
-          cursor: "pointer",
-        }}
-        align="center"
-        justify="center"
-        direction="column"
+    <Box key="new-client-form">
+      <Button
+        color="teal"
+        leftSection={<IconPlus size={24} />}
         onClick={openAddNewClient}
       >
-        <IconPlus size={24} />
         Add new client
-      </Flex>
+      </Button>
       <Modal
         centered
         size="auto"
@@ -153,6 +132,6 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
           </Flex>
         </Form>
       </Modal>
-    </GridCol>
+    </Box>
   );
 };

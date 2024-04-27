@@ -1,7 +1,7 @@
 "use client";
-import { Text } from "@mantine/core";
+import { Text, Title } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { GlassBox, NewUserForm, StatsBox } from "@sks/common/components";
+import { NewUserForm, PageContainer, StatsBox } from "@sks/common/components";
 import { StatsType, getStats } from "@sks/common/handlers";
 import { shortenId } from "@sks/common/helpers";
 import { SKSUser } from "@sks/database/generated/prisma-client";
@@ -29,35 +29,30 @@ export default function HomePage(): JSX.Element {
     fetchStats();
   }, []);
   return (
-    <>
+    <PageContainer>
+      <Title
+        size="50px"
+        mt="100px"
+        mb="15px"
+        style={{ textTransform: "initial" }}
+      >
+        Shut down any computer <br />
+        with a link
+      </Title>
+      <Text size="22px" style={{ textTransform: "initial" }} mb="8px">
+        - forever free
+      </Text>
+      <Text size="22px" style={{ textTransform: "initial" }} mb="8px">
+        - open source
+      </Text>
+      <Text size="22px" style={{ textTransform: "initial" }} mb="8px">
+        - no sign up
+      </Text>
+      <Text size="22px" style={{ textTransform: "initial" }} mb="100px">
+        - no bullshit
+      </Text>
       <StatsBox stats={stats} />
-      <GlassBox mb="20px">
-        <Text mb="10px">
-          This app will let you shut down any Windows/MacOS/Linux device using a
-          special link. Start by creating a new user ID.
-        </Text>
-        <Text mb="10px">
-          The next would be downloading a proper desktop app from the releases
-          page.
-        </Text>
-        <Text mb="10px">
-          Then on your user page you can create up to 20 unique IDs (one per
-          device) which will be used to shut down the device.
-        </Text>
-        <Text mb="10px">
-          Run the app, paste the client ID, set it to run on login and you're
-          all set.
-        </Text>
-        <Text mb="10px" fw="bolder">
-          Remember: Save the link to the user page to your bookmarks.
-        </Text>
-        <Text mb="10px" fs="italic" fw="lighter">
-          PS: If you won't choose a name for your user or client, system will
-          choose a name for you. It's not technically required but you know...
-          we all need names.
-        </Text>
-      </GlassBox>
       <NewUserForm onUserCreated={onUserCreated} />
-    </>
+    </PageContainer>
   );
 }

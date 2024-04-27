@@ -7,7 +7,6 @@ import "@sks/common/background.css";
 import "@sks/common/mantine-variables.css";
 import "@sks/common/reset.css";
 
-import { PageContainer } from "@sks/common/components";
 import { sksTheme } from "@sks/common/helpers";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
@@ -37,7 +36,7 @@ export default function RootLayout({
           forceColorScheme="dark"
           theme={sksTheme}
         >
-          <PageContainer>{children}</PageContainer>
+          {children}
           <Notifications position="top-right" />
         </MantineProvider>
       </body>

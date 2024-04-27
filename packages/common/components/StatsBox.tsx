@@ -4,7 +4,7 @@ import { StatsType } from "../handlers/get-stats";
 
 const StatsInfo = ({ stat, statName }: { stat?: number; statName: string }) =>
   typeof stat === "number" ? (
-    <Text size="20px" lh="30px">
+    <Text size="20px" lh="24px">
       <b>{stat}</b>
       <br />
       {statName}
@@ -19,10 +19,10 @@ const StatsInfo = ({ stat, statName }: { stat?: number; statName: string }) =>
   );
 
 export const StatsBox = ({ stats }: { stats: StatsType | undefined }) => (
-  <GlassBox mt="50vh" mb="30px">
+  <GlassBox mb="30px">
     <Flex justify="space-around" align="baseline">
       <Box ta="center">
-        <Title>
+        <Title size="20px">
           Usage
           <br />
           statistics

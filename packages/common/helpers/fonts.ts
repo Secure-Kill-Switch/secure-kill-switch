@@ -1,7 +1,9 @@
-import { Barlow_Condensed, Montserrat } from "next/font/google";
+import { Nunito, Open_Sans } from "next/font/google";
 
-export const FontHeader = Barlow_Condensed({
+export const FontHeader = Nunito({
   subsets: ["latin"],
   weight: "700",
 });
-export const FontBody = Montserrat({ subsets: ["latin-ext"] });
+export const FontBody = Open_Sans({
+  weight: ["400", "700"],
+});

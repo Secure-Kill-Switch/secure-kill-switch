@@ -1,4 +1,4 @@
-import { Box, Grid, Title } from "@mantine/core";
+import { Box, Flex, Grid, Title } from "@mantine/core";
 import {
   ClientsItem,
   NewClientForm,
@@ -15,7 +15,11 @@ export const ClientsList = ({
 }) => {
   return (
     <Box mt="30px">
-      <Title>Clients list</Title>
+      <Flex align="center" justify="space-between">
+        <Title>Clients list</Title>
+
+        <NewClientForm userId={userId} />
+      </Flex>
       <Grid
         columns={12}
         mt={10}
@@ -24,7 +28,6 @@ export const ClientsList = ({
         justify="stretch"
         className={glassBoxClassName}
       >
-        <NewClientForm userId={userId} />
         {clients.map((client, clientIndex) => (
           <ClientsItem
             key={`client-${client.id}`}

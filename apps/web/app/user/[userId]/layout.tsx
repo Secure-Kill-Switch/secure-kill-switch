@@ -1,5 +1,5 @@
-import { Text, Title } from "@mantine/core";
-import { ClientsList } from "@sks/common/components";
+import { Text } from "@mantine/core";
+import { ClientsList, PageContainer } from "@sks/common/components";
 import { getClients, getUser } from "@sks/common/handlers";
 import { SKSUser } from "@sks/database/generated/prisma-client";
 import { ReactNode } from "react";
@@ -24,12 +24,11 @@ export default async function UserPageLayout({
     return <Text>Error finding user</Text>;
   }
   return (
-    <>
-      <Title>Welcome {userData?.name ? ` ${userData.name}` : ""}</Title>
+    <PageContainer userName={userData?.name}>
       {children}
       {clientsData && userData?.id && (
         <ClientsList userId={userData.id} clients={clientsData} />
       )}
-    </>
+    </PageContainer>
   );
 }

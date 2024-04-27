@@ -5,7 +5,7 @@ import { LoginView } from "@/components/LoginView";
 import { executeAction } from "@/helpers/executeAction";
 import { ping } from "@/helpers/ping";
 import { clientDataStore } from "@/helpers/store";
-import { GlassBox } from "@sks/common/components";
+import { GlassBox, PageContainer } from "@sks/common/components";
 import { AppClientData } from "@sks/common/types";
 import { useEffect, useState } from "react";
 
@@ -38,12 +38,14 @@ export default function Home() {
     });
   }, []);
   return (
-    <GlassBox mb="20px">
-      <ClientView clientData={clientData} clearClientId={clearClientId} />
-      <LoginView
-        clientData={clientData}
-        saveClientIdOnSubmit={saveClientIdOnSubmit}
-      />
-    </GlassBox>
+    <PageContainer clientName={clientData?.name}>
+      <GlassBox mb="20px">
+        <ClientView clientData={clientData} clearClientId={clearClientId} />
+        <LoginView
+          clientData={clientData}
+          saveClientIdOnSubmit={saveClientIdOnSubmit}
+        />
+      </GlassBox>
+    </PageContainer>
   );
 }
