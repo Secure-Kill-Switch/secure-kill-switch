@@ -1,3 +1,5 @@
+const { PrismaPlugin } = require("@prisma/nextjs-monorepo-workaround-plugin");
+
 /** @type {import('next').NextConfig} */
 module.exports = {
   transpilePackages: [],
@@ -18,5 +20,12 @@ module.exports = {
         headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
       },
     ];
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.plugins = [...config.plugins, new PrismaPlugin()];
+    }
+
+    return config;
   },
 };

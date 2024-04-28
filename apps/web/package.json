@@ -8,8 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@sks/database": "workspace:*",
-    "@sks/common": "workspace:*"
+    "@prisma/nextjs-monorepo-workaround-plugin": "^5.13.0",
+    "@sks/common": "workspace:*",
+    "@sks/database": "workspace:*"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",
