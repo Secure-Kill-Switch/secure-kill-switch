@@ -6,4 +6,5 @@ export const FontHeader = Nunito({
 });
 export const FontBody = Open_Sans({
   weight: ["400", "700"],
+  subsets: ["latin"],
 });
