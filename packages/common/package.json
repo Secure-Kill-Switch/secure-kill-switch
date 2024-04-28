@@ -7,7 +7,7 @@
     "dev": "tsc --watch"
   },
   "files": [
-    "dist"
+    "dist/**"
   ],
   "exports": {
     "./helpers": {
