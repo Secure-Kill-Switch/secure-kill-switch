@@ -8,7 +8,7 @@
     "lint": "turbo run lint",
     "migrate": "turbo run migrate",
     "prebuild": "turbo run prebuild",
-    "postinstall": "turbo run generate",
+    "postinstall": "turbo run generate; turbo run prebuild",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
