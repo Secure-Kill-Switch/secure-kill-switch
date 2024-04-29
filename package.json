@@ -2,13 +2,13 @@
   "name": "secure-kill-switch",
   "private": true,
   "scripts": {
-    "build": "dotenv -- turbo run build",
+    "build": "pnpm dlx cpy-cli --flat ./packages/database/generated/prisma-client ./apps/web/generated/prisma-client & dotenv -- turbo run build",
     "build-app": "dotenv -- turbo run build-app",
     "dev": "dotenv -- turbo run dev",
     "lint": "dotenv -- turbo run lint",
     "migrate": "dotenv -- turbo run migrate",
     "prebuild": "dotenv -- turbo run prebuild",
-    "postinstall": "dotenv -- turbo run generate; dotenv -- turbo run prebuild",
+    "postinstall": "dotenv -- turbo run generate; dotenv -- turbo run prebuild; pnpm dlx cpy",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
