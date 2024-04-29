@@ -3,7 +3,7 @@ import { Box, Button, Chip, Flex, Modal, Text, TextInput } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
-import { SKSClient } from "@sks/database/generated/prisma-client";
+import { SKSClient } from "@prisma/client";
 import { IconCheck, IconPlus } from "@tabler/icons-react";
 import { useState } from "react";
 import { createClient, revalidateCachePath } from "../handlers";

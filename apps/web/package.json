@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/nextjs-monorepo-workaround-plugin": "^5.13.0",
-    "@sks/common": "workspace:*",
-    "@sks/database": "workspace:*"
+    "@sks/common": "workspace:*"
   },
   "devDependencies": {
     "@sks/eslint-config": "workspace:*",

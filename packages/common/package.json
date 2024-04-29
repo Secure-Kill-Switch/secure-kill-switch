@@ -40,7 +40,6 @@
     }
   },
   "dependencies": {
-    "@sks/database": "workspace:*",
     "@sks/typescript-config": "workspace:*"
   }
 }

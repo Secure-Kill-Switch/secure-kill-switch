@@ -1,5 +1,5 @@
 import { dbRealtime } from "@/helpers/realtime";
-import { SKSAction } from "@sks/database/generated/prisma-client";
+import { SKSAction } from "@prisma/client";
 import { sendNotification } from "@tauri-apps/api/notification";
 
 export const markActionsAsExecuted = async (

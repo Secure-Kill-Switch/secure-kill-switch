@@ -1,7 +1,7 @@
 "use server";
+import { SKSPossibleActions } from "@prisma/client";
 import { Optional } from "@prisma/client/runtime/library";
-import { prisma } from "@sks/database";
-import { SKSPossibleActions } from "@sks/database/generated/prisma-client";
+import { prisma } from "../helpers/database";
 import { ClientWithActions } from "../types";
 
 export async function showNotificationClient({

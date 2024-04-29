@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@sks/database";
+import { prisma } from "@sks/common/helpers";
 
 export async function getStats() {
   const usersCount = await prisma.sKSUser.count();

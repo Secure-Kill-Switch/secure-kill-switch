@@ -1,4 +1,5 @@
 export * from "./client-icons";
+export * from "./database";
 export * from "./fonts";
 export * from "./modal-zindex";
 export * from "./name-generator-options";

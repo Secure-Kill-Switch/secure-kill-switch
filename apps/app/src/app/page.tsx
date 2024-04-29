@@ -5,9 +5,9 @@ import { LoginView } from "@/components/LoginView";
 import { executeActions } from "@/helpers/executeAction";
 import { ping } from "@/helpers/ping";
 import { clientDataStore } from "@/helpers/store";
+import { SKSAction } from "@prisma/client";
 import { GlassBox, PageContainer } from "@sks/common/components";
 import { AppClientData } from "@sks/common/types";
-import { SKSAction } from "@sks/database/generated/prisma-client";
 import { useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";

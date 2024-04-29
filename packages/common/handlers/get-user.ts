@@ -1,7 +1,7 @@
 "use server";
+import { SKSUser } from "@prisma/client";
 import { Optional } from "@prisma/client/runtime/library";
-import { prisma } from "@sks/database";
-import { SKSUser } from "@sks/database/generated/prisma-client";
+import { prisma } from "@sks/common/helpers";
 
 export async function getUser({ id }: Optional<Omit<SKSUser, "name">>) {
   if (!id) {

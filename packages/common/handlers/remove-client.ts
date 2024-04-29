@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@sks/database";
+import { prisma } from "@sks/common/helpers";
 import { ClientWithActions } from "../types";
 
 export async function removeClient({

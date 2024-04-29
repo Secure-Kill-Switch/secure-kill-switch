@@ -1,7 +1,7 @@
 import { Text } from "@mantine/core";
+import { SKSUser } from "@prisma/client";
 import { ClientsList, PageContainer } from "@sks/common/components";
 import { getClients, getUser } from "@sks/common/handlers";
-import { SKSUser } from "@sks/database/generated/prisma-client";
 import { ReactNode } from "react";
 
 export default async function UserPageLayout({

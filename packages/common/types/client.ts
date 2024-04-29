@@ -3,7 +3,7 @@ import {
   SKSAction,
   SKSClient,
   SKSPossibleActions,
-} from "@sks/database/generated/prisma-client";
+} from "@prisma/client";
 
 export type ClientWithActions = SKSClient & {
   actions: Omit<SKSAction, "sKSClientId">[];

@@ -1,7 +1,7 @@
 import { executeActions } from "@/helpers/executeAction";
 import { dbRealtime } from "@/helpers/realtime";
+import { SKSAction } from "@prisma/client";
 import { AppClientData } from "@sks/common/types";
-import { SKSAction } from "@sks/database/generated/prisma-client";
 import { REALTIME_LISTEN_TYPES } from "@supabase/supabase-js";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
