@@ -2,7 +2,15 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "experimentalUI": true,
-  "globalEnv": ["POSTGRES_URL", "POSTGRES_URL_NON_POOLING"],
+  "globalDotEnv": [".env"],
+  "globalEnv": [
+    "POSTGRES_URL",
+    "POSTGRES_URL_NON_POOLING",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "NEXT_PUBLIC_BACKEND_URL",
+    "NEXT_PUBLIC_DEBUG_REALTIME"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["prebuild", "^build"],

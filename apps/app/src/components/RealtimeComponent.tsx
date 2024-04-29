@@ -30,7 +30,10 @@ export const RealtimeComponent = ({
         (payload: { new: SKSAction }) => {
           setActions((prev) => [...prev, payload.new]);
         }
-      );
+      )
+      .subscribe((info) => {
+        console.log("Realtime connection info", info);
+      });
     return () => {
       actionsConnection.unsubscribe();
     };
