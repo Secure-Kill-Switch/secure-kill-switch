@@ -2,7 +2,7 @@
   "name": "secure-kill-switch",
   "private": true,
   "scripts": {
-    "patch-prisma": "pnpm dlx cpy-cli --flat ./packages/database/generated/prisma-client ./apps/web/generated/prisma-client",
+    "patch-prisma": "pnpm dlx cpy-cli --flat ./packages/database/generated/prisma-client/libquery_engine-rhel-openssl-3.0.x.so.node ./apps/web/.next/server/libquery_engine-rhel-openssl-3.0.x.so.node",
     "build": "pnpm patch-prisma & dotenv -- turbo run build",
     "build-app": "dotenv -- turbo run build-app",
     "dev": "dotenv -- turbo run dev",
