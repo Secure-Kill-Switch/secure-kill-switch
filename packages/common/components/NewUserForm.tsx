@@ -3,7 +3,7 @@
 import { Button, Flex, Modal, Text, TextInput, rem } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { SKSUser } from "@prisma/client";
+import { SKSUser } from "@sks/database";
 import { IconUser } from "@tabler/icons-react";
 import { useState } from "react";
 import { createUser } from "../handlers";
