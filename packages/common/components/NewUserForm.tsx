@@ -3,17 +3,26 @@
 import { Button, Flex, Modal, Text, TextInput, rem } from "@mantine/core";
 import { Form, useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
+import { notifications } from "@mantine/notifications";
 import { SKSUser } from "@sks/database";
 import { IconUser } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { createUser } from "../handlers";
-import { modalLayers } from "../helpers";
+import { modalLayers, shortenId } from "../helpers";
 
-export const NewUserForm = ({
-  onUserCreated,
-}: {
-  onUserCreated: (client: SKSUser) => void;
-}) => {
+export const NewUserForm = () => {
+  const { push } = useRouter();
+  const onUserCreated = (user: SKSUser) => {
+    notifications.show({
+      title: "User created",
+      message: user.name
+        ? `User ${shortenId(user.id)} created with name ${user.name}`
+        : `User ${shortenId(user.id)} created`,
+      color: "teal",
+    });
+    push(`/user/${user.id}`);
+  };
   const createUserForm = useForm({
     initialValues: {
       name: "",

@@ -1,6 +1,6 @@
 import { Box, Flex, Loader, Text, Title } from "@mantine/core";
 import { GlassBox } from "../components";
-import { StatsType } from "../handlers/get-stats";
+import { getStats } from "../handlers/get-stats";
 
 const StatsInfo = ({ stat, statName }: { stat?: number; statName: string }) =>
   typeof stat === "number" ? (
@@ -18,25 +18,28 @@ const StatsInfo = ({ stat, statName }: { stat?: number; statName: string }) =>
     </Flex>
   );
 
-export const StatsBox = ({ stats }: { stats: StatsType | undefined }) => (
-  <GlassBox mb="30px">
-    <Flex justify="space-around" align="baseline">
-      <Box ta="center">
-        <Title size="20px">
-          Usage
-          <br />
-          statistics
-        </Title>
-      </Box>
-      <Box ta="center">
-        <StatsInfo stat={stats?.body.usersCount} statName="users" />
-      </Box>
-      <Box ta="center">
-        <StatsInfo stat={stats?.body.clientsCount} statName="clients" />
-      </Box>
-      <Box ta="center">
-        <StatsInfo stat={stats?.body.actionsCount} statName="actions" />
-      </Box>
-    </Flex>
-  </GlassBox>
-);
+export const StatsBox = async () => {
+  const stats = await getStats();
+  return (
+    <GlassBox mb="30px">
+      <Flex justify="space-around" align="baseline">
+        <Box ta="center">
+          <Title size="20px">
+            Usage
+            <br />
+            statistics
+          </Title>
+        </Box>
+        <Box ta="center">
+          <StatsInfo stat={stats?.body.usersCount} statName="users" />
+        </Box>
+        <Box ta="center">
+          <StatsInfo stat={stats?.body.clientsCount} statName="clients" />
+        </Box>
+        <Box ta="center">
+          <StatsInfo stat={stats?.body.actionsCount} statName="actions" />
+        </Box>
+      </Flex>
+    </GlassBox>
+  );
+};

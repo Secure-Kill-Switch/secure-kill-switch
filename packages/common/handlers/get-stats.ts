@@ -1,5 +1,3 @@
-"use server";
-
 import { prismaCommonClient } from "../helpers";
 
 export async function getStats() {
