@@ -1,6 +1,8 @@
 import { Container, Flex, Title } from "@mantine/core";
+import { ClientIcons } from "@sks/database";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
+import { ClientIcon } from "./ClientIcon";
 import { GlassBox } from "./GlassBox";
 import { SksLogo } from "./Logo";
 
@@ -8,10 +10,12 @@ export const PageContainer = ({
   children,
   userName,
   clientName,
+  clientIcon,
   noPadding,
 }: PropsWithChildren<{
   userName?: string;
   clientName?: string;
+  clientIcon?: ClientIcons;
   noPadding?: boolean;
 }>) => {
   return (
@@ -66,11 +70,17 @@ export const PageContainer = ({
                 Hi, {userName}!
               </Title>
             )}
+            {clientIcon && (
+              <ClientIcon
+                icon={clientIcon}
+                iconProps={{ style: { marginLeft: "auto" } }}
+              />
+            )}
             {clientName && (
               <Title
                 size="22px"
                 mr="10px"
-                ml="auto"
+                ml="10px"
                 mt="2px"
                 lts="-1px"
                 unselectable="on"

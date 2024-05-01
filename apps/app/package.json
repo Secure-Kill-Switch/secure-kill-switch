@@ -13,6 +13,7 @@
     "@sks/database": "workspace:*",
     "@supabase/supabase-js": "^2.42.7",
     "@tauri-apps/api": "^1.5.4",
+    "tauri-plugin-autostart-api": "github:tauri-apps/tauri-plugin-autostart",
     "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store"
   },
   "devDependencies": {

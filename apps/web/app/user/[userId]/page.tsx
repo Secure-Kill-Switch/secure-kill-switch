@@ -1,5 +1,4 @@
 "use client";
-import { useInterval } from "@mantine/hooks";
 import { revalidateCachePath } from "@sks/common/handlers";
 import { ReactNode, useEffect } from "react";
 
@@ -8,13 +7,12 @@ export default function UserPage({
 }: {
   params: { userId: string };
 }): ReactNode {
-  const refreshUserData = useInterval(() => {
-    revalidateCachePath(`/user/${params.userId}`);
-  }, 10000);
   useEffect(() => {
-    refreshUserData.start();
+    const refreshUserDataInterval = setInterval(() => {
+      revalidateCachePath(`/user/${params.userId}`);
+    }, 10000);
     return () => {
-      refreshUserData.stop();
+      clearInterval(refreshUserDataInterval);
     };
   });
   return null;

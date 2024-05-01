@@ -79,7 +79,7 @@ export const ClientsItemDetailsMenu = ({
           variant="outline"
           leftSection={<IconPlus style={{ width: rem(14), height: rem(14) }} />}
         >
-          Add action
+          Execute action
         </Badge>
       </MenuTarget>
 
@@ -95,7 +95,7 @@ export const ClientsItemDetailsMenu = ({
           Send notification
         </MenuItem>
         <MenuDivider />
-        <MenuLabel>Client data</MenuLabel>
+        <MenuLabel>Edit client</MenuLabel>
         <MenuItem
           onClick={openClientRenameModal}
           leftSection={<IconCursorText style={menuIconsStyle} />}

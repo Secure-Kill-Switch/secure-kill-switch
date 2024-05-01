@@ -8,6 +8,7 @@ import { clientDataStore } from "@/helpers/store";
 
 import { GlassBox, PageContainer } from "@sks/common/components";
 import { AppClientData } from "@sks/common/types";
+import { SKSAction } from "@sks/database";
 import { useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";
@@ -18,7 +19,6 @@ export default function Home() {
   const handlePingData = (pingClientData?: AppClientData) => {
     setClientData(pingClientData);
     setGettingClientData(false);
-    console.log("pingClientData", pingClientData);
     executeActions(pingClientData?.actions as SKSAction[]);
     void clientDataStore.set(pingClientData);
   };
@@ -40,7 +40,7 @@ export default function Home() {
     });
   }, []);
   return (
-    <PageContainer clientName={clientData?.name}>
+    <PageContainer clientName={clientData?.name} clientIcon={clientData?.icon}>
       <GlassBox mb="20px">
         <ClientView
           clientData={clientData}
