@@ -1,11 +1,12 @@
 import { RealtimeComponent } from "@/components/RealtimeComponent";
-import { Button } from "@mantine/core";
+import { Box, Button, Flex } from "@mantine/core";
 import { AppClientData } from "@sks/common/types";
 import {
   isPermissionGranted,
   requestPermission,
 } from "@tauri-apps/api/notification";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { ClientIcon } from "../../../../packages/common/components/ClientIcon";
 
 export const ClientView = ({
   clientData,
@@ -29,19 +30,27 @@ export const ClientView = ({
   if (!clientData?.id) return null;
   return (
     <>
-      <Button variant="light" onClick={clearClientId} mt="15px">
-        Reset Client ID
-      </Button>
-      <Button
-        variant="light"
-        disabled={notificationPermission}
-        onClick={requestNotificationPermission}
-        mt="15px"
-      >
-        {notificationPermission
-          ? "Notifications enabled"
-          : "Enable notifications"}
-      </Button>
+      <Flex>
+        <Box>
+          <ClientIcon
+            icon={clientData.icon}
+            iconProps={{ size: "140px", strokeWidth: 1 }}
+          />
+        </Box>
+        <Button variant="light" onClick={clearClientId} mt="15px">
+          Reset Client ID
+        </Button>
+        <Button
+          variant="light"
+          disabled={notificationPermission}
+          onClick={requestNotificationPermission}
+          mt="15px"
+        >
+          {notificationPermission
+            ? "Notifications enabled"
+            : "Enable notifications"}
+        </Button>
+      </Flex>
       <RealtimeComponent
         clientData={clientData}
         setClientData={setClientData}
