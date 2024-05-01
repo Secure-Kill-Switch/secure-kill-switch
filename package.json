@@ -7,7 +7,7 @@
     "dev": "dotenv -- turbo run dev",
     "lint": "dotenv -- turbo run lint",
     "migrate": "dotenv -- turbo run migrate",
-    "postinstall": "dotenv -- turbo run db:generate & dotenv -- turbo run prebuild",
+    "postinstall": "dotenv -- turbo run prebuild",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
