@@ -9,6 +9,7 @@
     "generate": "prisma generate"
   },
   "dependencies": {
+    "@sks/database": "workspace:*",
     "@prisma/nextjs-monorepo-workaround-plugin": "^5.13.0",
     "@sks/common": "workspace:*"
   },

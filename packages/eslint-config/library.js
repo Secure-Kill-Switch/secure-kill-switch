@@ -19,6 +19,11 @@ module.exports = {
       },
     },
   },
+  plugins: ["@typescript-eslint"],
+  rules: {
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+  },
   ignorePatterns: [
     // Ignore dotfiles
     ".*.js",

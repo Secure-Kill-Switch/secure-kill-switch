@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@sks/common/helpers";
+import { prismaCommonClient } from "../helpers";
 import { ClientWithActions } from "../types";
 
 export async function removeClient({
@@ -15,7 +15,7 @@ export async function removeClient({
         },
       };
     }
-    const user = await prisma.sKSUser.findFirst({
+    const user = await prismaCommonClient.sKSUser.findFirst({
       where: {
         id: userId,
       },
@@ -28,7 +28,7 @@ export async function removeClient({
         },
       };
     }
-    const removeClientCall = await prisma.sKSClient.delete({
+    const removeClientCall = await prismaCommonClient.sKSClient.delete({
       where: {
         id,
       },

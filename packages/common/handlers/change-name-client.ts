@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@sks/common/helpers";
+import { prismaCommonClient } from "../helpers";
 import { ClientWithActions } from "../types";
 
 export async function renameClient({
@@ -17,7 +17,7 @@ export async function renameClient({
       },
     };
   }
-  const checkUserExistence = await prisma.sKSUser.findUnique({
+  const checkUserExistence = await prismaCommonClient.sKSUser.findUnique({
     where: {
       id: userId,
     },
@@ -31,7 +31,7 @@ export async function renameClient({
     };
   }
   try {
-    const setNewClientName = await prisma.sKSClient.update({
+    const setNewClientName = await prismaCommonClient.sKSClient.update({
       where: {
         id,
       },

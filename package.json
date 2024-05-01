@@ -7,7 +7,8 @@
     "dev": "dotenv -- turbo run dev",
     "lint": "dotenv -- turbo run lint",
     "migrate": "dotenv -- turbo run migrate",
-    "postinstall": "dotenv -- turbo run generate; dotenv -- turbo run prebuild",
+    "db:generate": "dotenv -- turbo run db:generate",
+    "postinstall": "dotenv -- turbo run prebuild",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
@@ -17,7 +18,6 @@
     "@mantine/form": "^7.8.1",
     "@mantine/hooks": "^7.8.1",
     "@mantine/notifications": "^7.8.1",
-    "@prisma/client": "5.12.1",
     "@tabler/icons-react": "^3.2.0",
     "dayjs": "^1.11.11",
     "dotenv-cli": "^7.4.1",

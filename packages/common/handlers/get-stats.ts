@@ -1,10 +1,11 @@
 "use server";
-import { prisma } from "@sks/common/helpers";
+
+import { prismaCommonClient } from "../helpers";
 
 export async function getStats() {
-  const usersCount = await prisma.sKSUser.count();
-  const clientsCount = await prisma.sKSClient.count();
-  const actionsCount = await prisma.sKSAction.count();
+  const usersCount = await prismaCommonClient.sKSUser.count();
+  const clientsCount = await prismaCommonClient.sKSClient.count();
+  const actionsCount = await prismaCommonClient.sKSAction.count();
   return {
     status: 200,
     body: {

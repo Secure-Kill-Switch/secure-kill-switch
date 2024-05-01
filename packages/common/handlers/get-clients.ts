@@ -1,10 +1,9 @@
 "use server";
-import { SKSUser } from "@prisma/client";
-import { Optional } from "@prisma/client/runtime/library";
-import { prisma } from "@sks/common/helpers";
+import { SKSUser } from "@sks/database";
+import { prismaCommonClient } from "../helpers";
 import { ClientWithActions } from "../types";
 
-export async function getClients({ id }: Optional<Omit<SKSUser, "name">>) {
+export async function getClients({ id }: Partial<Omit<SKSUser, "name">>) {
   if (!id) {
     return {
       status: 400,
@@ -14,13 +13,13 @@ export async function getClients({ id }: Optional<Omit<SKSUser, "name">>) {
     };
   }
   try {
-    const getUserClientsCall = await prisma.sKSClient.findMany({
+    const getUserClientsCall = await prismaCommonClient.sKSClient.findMany({
       where: {
         userId: id,
       },
     });
     const getActions = getUserClientsCall.length
-      ? await prisma.sKSAction.findMany({
+      ? await prismaCommonClient.sKSAction.findMany({
           where: {
             sKSClientId: {
               in: getUserClientsCall.map((client) => client.id),

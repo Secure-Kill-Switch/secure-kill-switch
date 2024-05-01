@@ -1,4 +1,4 @@
-import { prisma } from "@sks/common/helpers";
+import { prismaWebClient } from "@/helpers/prisma";
 
 type PingParams = {
   clientId: string;
@@ -13,7 +13,7 @@ export async function GET(
   }
 ): Promise<Response> {
   const { clientId } = params;
-  const clientData = await prisma.sKSClient.findUnique({
+  const clientData = await prismaWebClient.sKSClient.findUnique({
     where: {
       id: clientId,
     },
@@ -24,12 +24,12 @@ export async function GET(
     });
   }
   try {
-    const actions = await prisma.sKSAction.findMany({
+    const actions = await prismaWebClient.sKSAction.findMany({
       where: {
         sKSClientId: clientId,
       },
     });
-    const updateLastPing = await prisma.sKSClient.update({
+    const updateLastPing = await prismaWebClient.sKSClient.update({
       where: {
         id: clientId,
       },

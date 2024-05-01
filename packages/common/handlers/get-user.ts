@@ -1,9 +1,9 @@
 "use server";
-import { SKSUser } from "@prisma/client";
-import { Optional } from "@prisma/client/runtime/library";
-import { prisma } from "@sks/common/helpers";
 
-export async function getUser({ id }: Optional<Omit<SKSUser, "name">>) {
+import { SKSUser } from "@sks/database";
+import { prismaCommonClient } from "../helpers";
+
+export async function getUser({ id }: Partial<Omit<SKSUser, "name">>) {
   if (!id) {
     return {
       status: 400,
@@ -13,7 +13,7 @@ export async function getUser({ id }: Optional<Omit<SKSUser, "name">>) {
     };
   }
   try {
-    const getUserResult = await prisma.sKSUser.findUniqueOrThrow({
+    const getUserResult = await prismaCommonClient.sKSUser.findUniqueOrThrow({
       where: {
         id,
       },

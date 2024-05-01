@@ -23,9 +23,6 @@ importers:
       '@mantine/notifications':
         specifier: ^7.8.1
         version: 7.8.1(@mantine/core@7.8.1)(@mantine/hooks@7.8.1)(react-dom@18.3.1)(react@18.3.1)
-      '@prisma/client':
-        specifier: 5.12.1
-        version: 5.12.1(prisma@5.13.0)
       '@tabler/icons-react':
         specifier: ^3.2.0
         version: 3.2.0(react@18.3.1)
@@ -108,6 +105,9 @@ importers:
       '@sks/common':
         specifier: workspace:*
         version: link:../../packages/common
+      '@sks/database':
+        specifier: workspace:*
+        version: link:../../packages/database
       '@supabase/supabase-js':
         specifier: ^2.42.7
         version: 2.42.7
@@ -136,6 +136,9 @@ importers:
       '@sks/common':
         specifier: workspace:*
         version: link:../../packages/common
+      '@sks/database':
+        specifier: workspace:*
+        version: link:../../packages/database
     devDependencies:
       '@sks/eslint-config':
         specifier: workspace:*
@@ -146,9 +149,22 @@ importers:
 
   packages/common:
     dependencies:
+      '@sks/database':
+        specifier: workspace:*
+        version: link:../database
       '@sks/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+
+  packages/database:
+    dependencies:
+      '@prisma/client':
+        specifier: latest
+        version: 5.13.0(prisma@5.13.0)
+    devDependencies:
+      prisma:
+        specifier: latest
+        version: 5.13.0
 
   packages/eslint-config: {}
 
@@ -722,8 +738,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
-  /@prisma/client@5.12.1(prisma@5.13.0):
-    resolution: {integrity: sha512-6/JnizEdlSBxDIdiLbrBdMW5NqDxOmhXAJaNXiPpgzAPr/nLZResT6MMpbOHLo5yAbQ1Vv5UU8PTPRzb0WIxdA==}
+  /@prisma/client@5.13.0(prisma@5.13.0):
+    resolution: {integrity: sha512-uYdfpPncbZ/syJyiYBwGZS8Gt1PTNoErNYMuqHDa2r30rNSFtgTA/LXsSk55R7pdRTMi5pHkeP9B14K6nHmwkg==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
@@ -737,11 +753,9 @@ packages:
 
   /@prisma/debug@5.13.0:
     resolution: {integrity: sha512-699iqlEvzyCj9ETrXhs8o8wQc/eVW+FigSsHpiskSFydhjVuwTJEfj/nIYqTaWFYuxiWQRfm3r01meuW97SZaQ==}
-    dev: false
 
   /@prisma/engines-version@5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b:
     resolution: {integrity: sha512-AyUuhahTINGn8auyqYdmxsN+qn0mw3eg+uhkp8zwknXYIqoT3bChG4RqNY/nfDkPvzWAPBa9mrDyBeOnWSgO6A==}
-    dev: false
 
   /@prisma/engines@5.13.0:
     resolution: {integrity: sha512-hIFLm4H1boj6CBZx55P4xKby9jgDTeDG0Jj3iXtwaaHmlD5JmiDkZhh8+DYWkTGchu+rRF36AVROLnk0oaqhHw==}
@@ -751,7 +765,6 @@ packages:
       '@prisma/engines-version': 5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b
       '@prisma/fetch-engine': 5.13.0
       '@prisma/get-platform': 5.13.0
-    dev: false
 
   /@prisma/fetch-engine@5.13.0:
     resolution: {integrity: sha512-Yh4W+t6YKyqgcSEB3odBXt7QyVSm0OQlBSldQF2SNXtmOgMX8D7PF/fvH6E6qBCpjB/yeJLy/FfwfFijoHI6sA==}
@@ -759,13 +772,11 @@ packages:
       '@prisma/debug': 5.13.0
       '@prisma/engines-version': 5.13.0-23.b9a39a7ee606c28e3455d0fd60e78c3ba82b1a2b
       '@prisma/get-platform': 5.13.0
-    dev: false
 
   /@prisma/get-platform@5.13.0:
     resolution: {integrity: sha512-B/WrQwYTzwr7qCLifQzYOmQhZcFmIFhR81xC45gweInSUn2hTEbfKUPd2keAog+y5WI5xLAFNJ3wkXplvSVkSw==}
     dependencies:
       '@prisma/debug': 5.13.0
-    dev: false
 
   /@prisma/nextjs-monorepo-workaround-plugin@5.13.0:
     resolution: {integrity: sha512-KcrUjPotWYanktn7t97NwzeMHRsRT9P452EVO802J+yvCm9yKx6xtFzfUlD3NFOsUToAMytIE+t9Ct7/7bDnsg==}
@@ -3661,7 +3672,6 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 5.13.0
-    dev: false
 
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}

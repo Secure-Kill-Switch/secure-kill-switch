@@ -1,13 +1,12 @@
 "use server";
-import { SKSPossibleActions } from "@prisma/client";
-import { Optional } from "@prisma/client/runtime/library";
-import { prisma } from "../helpers/database";
+import { SKSPossibleActions } from "@sks/database";
+import { prismaCommonClient } from "../helpers";
 import { ClientWithActions } from "../types";
 
 export async function showNotificationClient({
   id,
   notificationText,
-}: Optional<Omit<ClientWithActions, "name">> & { notificationText: string }) {
+}: Partial<Omit<ClientWithActions, "name">> & { notificationText: string }) {
   if (!id || !notificationText) {
     return {
       status: 400,
@@ -16,7 +15,7 @@ export async function showNotificationClient({
       },
     };
   }
-  const checkClientExistence = await prisma.sKSClient.findUnique({
+  const checkClientExistence = await prismaCommonClient.sKSClient.findUnique({
     where: {
       id,
     },
@@ -30,7 +29,7 @@ export async function showNotificationClient({
     };
   }
   try {
-    const showNotificationCall = await prisma.sKSAction.create({
+    const showNotificationCall = await prismaCommonClient.sKSAction.create({
       data: {
         action: SKSPossibleActions.NOTIFICATION,
         notificationText,

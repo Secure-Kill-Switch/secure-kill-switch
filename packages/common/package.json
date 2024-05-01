@@ -7,7 +7,12 @@
     "dev": "tsc --watch"
   },
   "files": [
-    "dist/**"
+    "dist/**",
+    "helpers/**",
+    "handlers/**",
+    "types/**",
+    "components/**",
+    "css/**"
   ],
   "exports": {
     "./helpers": {
@@ -40,6 +45,7 @@
     }
   },
   "dependencies": {
+    "@sks/database": "workspace:*",
     "@sks/typescript-config": "workspace:*"
   }
 }

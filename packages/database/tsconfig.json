@@ -4,9 +4,6 @@
     "plugins": [
       {
         "name": "next"
-      },
-      {
-        "name": "typescript-plugin-css-modules"
       }
     ],
     "rootDir": "./",
@@ -16,11 +13,6 @@
     "emitDeclarationOnly": true,
     "declaration": true
   },
-  "include": [
-    "./components/**/*",
-    "./handlers/**/*",
-    "./helpers/**/*",
-    "./types/**/*"
-  ],
-  "exclude": ["dist", "build", "node_modules"]
+  "include": [],
+  "exclude": ["node_modules"]
 }

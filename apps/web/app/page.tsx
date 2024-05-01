@@ -1,10 +1,10 @@
 "use client";
 import { Text, Title } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { SKSUser } from "@prisma/client";
 import { NewUserForm, PageContainer, StatsBox } from "@sks/common/components";
 import { StatsType, getStats } from "@sks/common/handlers";
 import { shortenId } from "@sks/common/helpers";
+import { SKSUser } from "@sks/database";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
