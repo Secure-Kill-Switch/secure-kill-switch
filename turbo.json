@@ -13,19 +13,19 @@
   ],
   "pipeline": {
     "build": {
-      "dependsOn": ["db:generate", "prebuild", "^build"],
+      "dependsOn": ["^db:generate", "prebuild", "^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
     },
     "dev": {
-      "dependsOn": ["db:generate"],
+      "dependsOn": ["^db:generate"],
       "cache": false,
       "persistent": true
     },
     "prebuild": {
-      "dependsOn": ["db:generate"]
+      "dependsOn": ["^db:generate"]
     },
     "db:generate": {
       "cache": false
