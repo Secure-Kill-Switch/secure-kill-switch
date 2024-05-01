@@ -2,7 +2,7 @@
   "name": "secure-kill-switch",
   "private": true,
   "scripts": {
-    "build": "pnpm patch-prisma & dotenv -- turbo run build",
+    "build": "dotenv -- turbo run build",
     "build-app": "dotenv -- turbo run build-app",
     "dev": "dotenv -- turbo run dev",
     "lint": "dotenv -- turbo run lint",
