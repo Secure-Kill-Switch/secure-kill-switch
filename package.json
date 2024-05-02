@@ -1,6 +1,7 @@
 {
   "name": "secure-kill-switch",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
     "build-web": "dotenv -- turbo run build-web",
     "build": "dotenv -- turbo run build",
@@ -8,6 +9,7 @@
     "lint": "dotenv -- turbo run lint",
     "migrate": "dotenv -- turbo run migrate",
     "postinstall": "dotenv -- turbo run prebuild",
+    "release": "pnpm dlx release-it",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
