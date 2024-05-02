@@ -1,5 +1,6 @@
 import { Text } from "@mantine/core";
-import { ClientsList, PageContainer } from "@sks/common/components";
+import { ClientsList } from "@sks/common/components/ClientsList";
+import { PageContainer } from "@sks/common/components/PageContainer";
 import { getClients, getUser } from "@sks/common/handlers";
 import { SKSUser } from "@sks/database";
 import { ReactNode } from "react";

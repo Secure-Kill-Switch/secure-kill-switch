@@ -1,3 +1,4 @@
+"use client";
 import { AppClientData, PingResponseType } from "@sks/common/types";
 
 export async function ping(clientId?: string) {

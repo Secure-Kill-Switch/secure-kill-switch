@@ -5,8 +5,9 @@ import { LoginView } from "@/components/LoginView";
 import { executeActions } from "@/helpers/executeAction";
 import { ping } from "@/helpers/ping";
 import { clientDataStore } from "@/helpers/store";
+import { GlassBox } from "@sks/common/components/GlassBox";
+import { PageContainer } from "@sks/common/components/PageContainer";
 
-import { GlassBox, PageContainer } from "@sks/common/components";
 import { AppClientData } from "@sks/common/types";
 import { SKSAction } from "@sks/database";
 import { useEffect, useState } from "react";

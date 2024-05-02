@@ -1,5 +1,7 @@
 import { Text, Title } from "@mantine/core";
-import { NewUserForm, PageContainer, StatsBox } from "@sks/common/components";
+import { NewUserForm } from "@sks/common/components/NewUserForm";
+import { PageContainer } from "@sks/common/components/PageContainer";
+import { StatsBox } from "@sks/common/components/StatsBox";
 
 export default function HomePage(): JSX.Element {
   return (

@@ -41,22 +41,25 @@ export const ClientView = ({
   }, []);
   const requestNotificationPermission = async () => {
     if (!notificationPermission) {
-      await requestPermission();
-      setNotificationPermission(true);
+      requestPermission().then((notificationPermissionEnabled) => {
+        setNotificationPermission(notificationPermissionEnabled === "granted");
+      });
     }
   };
   const requestAutostartPermission = async () => {
     if (!autostartEnabled) {
-      await enableAutostart();
-      void isAutostartEnabled().then(setAutostartEnabled);
+      enableAutostart().then(() => {
+        void isAutostartEnabled().then(setAutostartEnabled);
+      });
     }
   };
   const removeAutostartPermission = async () => {
     if (!autostartEnabled) {
       return;
     }
-    await disableAutostart();
-    void isAutostartEnabled().then(setAutostartEnabled);
+    disableAutostart().then(() => {
+      void isAutostartEnabled().then(setAutostartEnabled);
+    });
   };
   if (!clientData?.id) return null;
   return (
@@ -87,7 +90,11 @@ export const ClientView = ({
           <Button
             variant="outline"
             color="teal"
-            onClick={requestAutostartPermission}
+            onClick={
+              autostartEnabled
+                ? removeAutostartPermission
+                : requestAutostartPermission
+            }
             leftSection={<IconLogin style={actionIconsStyle} />}
             mt="15px"
           >
@@ -95,7 +102,7 @@ export const ClientView = ({
           </Button>
           <Center>
             <Text size="12px" mt="4px">
-              (click again to disable)
+              {autostartEnabled ? "(click again to disable)" : "\u00A0"}
             </Text>
           </Center>
         </Box>

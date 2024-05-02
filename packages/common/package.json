@@ -27,9 +27,49 @@
       "import": "./types/index.ts",
       "types": "./dist/types/index.ts"
     },
-    "./components": {
-      "import": "./components/index.ts",
-      "types": "./dist/components/index.ts"
+    "./components/GlassBox": {
+      "import": "./components/GlassBox.tsx",
+      "types": "./dist/components/GlassBox.d.ts"
+    },
+    "./components/StatsBox": {
+      "import": "./components/StatsBox.tsx",
+      "types": "./dist/components/StatsBox.d.ts"
+    },
+    "./components/NewClientForm": {
+      "import": "./components/NewClientForm.tsx",
+      "types": "./dist/components/NewClientForm.d.ts"
+    },
+    "./components/NewUserForm": {
+      "import": "./components/NewUserForm.tsx",
+      "types": "./dist/components/NewUserForm.d.ts"
+    },
+    "./components/PageContainer": {
+      "import": "./components/PageContainer.tsx",
+      "types": "./dist/components/PageContainer.d.ts"
+    },
+    "./components/ClientDetails": {
+      "import": "./components/clients-list/ClientDetails.tsx",
+      "types": "./dist/components/clients-list/ClientDetails.d.ts"
+    },
+    "./components/ClientIdCopyButton": {
+      "import": "./components/clients-list/ClientIdCopyButton.tsx",
+      "types": "./dist/components/clients-list/ClientIdCopyButton.d.ts"
+    },
+    "./components/ClientsList": {
+      "import": "./components/clients-list/ClientsList.tsx",
+      "types": "./dist/components/clients-list/ClientsList.d.ts"
+    },
+    "./components/ClientsItemDetailsMenu": {
+      "import": "./components/clients-list/ClientsItemDetailsMenu.tsx",
+      "types": "./dist/components/clients-list/ClientsItemDetailsMenu.d.ts"
+    },
+    "./components/ClientsItemDetailsRenameModal": {
+      "import": "./components/clients-list/ClientsItemDetailsRenameModal.tsx",
+      "types": "./dist/components/clients-list/ClientsItemDetailsRenameModal.d.ts"
+    },
+    "./components/ClientsItemDetailsShowNotificationModal": {
+      "import": "./components/clients-list/ClientsItemDetailsShowNotificationModal.tsx",
+      "types": "./dist/components/clients-list/ClientsItemDetailsShowNotificationModal.d.ts"
     },
     "./animations.css": {
       "import": "./css/animations.css"
