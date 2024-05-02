@@ -9,7 +9,7 @@
     "lint": "dotenv -- turbo run lint",
     "migrate": "dotenv -- turbo run migrate",
     "postinstall": "dotenv -- turbo run prebuild",
-    "release": "pnpm dlx release-it",
+    "release": "release-it",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
@@ -26,6 +26,7 @@
     "prisma": "^5.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "release-it": "^17.2.1",
     "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
