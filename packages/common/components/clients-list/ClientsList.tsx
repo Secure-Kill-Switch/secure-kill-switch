@@ -1,6 +1,7 @@
 import { Box, Flex, Grid, Title } from "@mantine/core";
-import { ClientDetails, NewClientForm } from "../../components";
 import { ClientWithActions } from "../../types";
+import { NewClientForm } from "../NewClientForm";
+import { ClientDetails } from "./ClientDetails";
 
 export const ClientsList = ({
   clients,

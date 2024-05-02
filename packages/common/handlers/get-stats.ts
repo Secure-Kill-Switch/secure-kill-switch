@@ -13,5 +13,3 @@ export async function getStats() {
     },
   };
 }
-
-export type StatsType = Awaited<ReturnType<typeof getStats>>;
