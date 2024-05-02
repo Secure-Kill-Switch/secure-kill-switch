@@ -87,7 +87,11 @@ export const ClientView = ({
           <Button
             variant="outline"
             color="teal"
-            onClick={requestAutostartPermission}
+            onClick={
+              autostartEnabled
+                ? removeAutostartPermission
+                : requestAutostartPermission
+            }
             leftSection={<IconLogin style={actionIconsStyle} />}
             mt="15px"
           >
