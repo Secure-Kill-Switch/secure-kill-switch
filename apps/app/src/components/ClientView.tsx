@@ -99,7 +99,7 @@ export const ClientView = ({
           </Button>
           <Center>
             <Text size="12px" mt="4px">
-              (click again to disable)
+              {autostartEnabled ? "(click again to disable)" : "\u00A0"}
             </Text>
           </Center>
         </Box>

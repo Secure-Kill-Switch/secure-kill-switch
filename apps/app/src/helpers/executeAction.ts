@@ -1,3 +1,4 @@
+"use client";
 import { dbRealtime } from "@/helpers/realtime";
 import { SKSAction } from "@sks/database";
 import { sendNotification } from "@tauri-apps/api/notification";
