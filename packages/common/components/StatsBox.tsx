@@ -1,6 +1,6 @@
 import { Box, Flex, Loader, Text, Title } from "@mantine/core";
-import { GlassBox } from "../components";
-import { getStats } from "../handlers/get-stats";
+import { getStats } from "../handlers";
+import { GlassBox } from "./GlassBox";
 
 const StatsInfo = ({ stat, statName }: { stat?: number; statName: string }) =>
   typeof stat === "number" ? (

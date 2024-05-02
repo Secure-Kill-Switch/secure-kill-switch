@@ -41,22 +41,25 @@ export const ClientView = ({
   }, []);
   const requestNotificationPermission = async () => {
     if (!notificationPermission) {
-      await requestPermission();
-      setNotificationPermission(true);
+      requestPermission().then((notificationPermissionEnabled) => {
+        setNotificationPermission(notificationPermissionEnabled === "granted");
+      });
     }
   };
   const requestAutostartPermission = async () => {
     if (!autostartEnabled) {
-      await enableAutostart();
-      void isAutostartEnabled().then(setAutostartEnabled);
+      enableAutostart().then(() => {
+        void isAutostartEnabled().then(setAutostartEnabled);
+      });
     }
   };
   const removeAutostartPermission = async () => {
     if (!autostartEnabled) {
       return;
     }
-    await disableAutostart();
-    void isAutostartEnabled().then(setAutostartEnabled);
+    disableAutostart().then(() => {
+      void isAutostartEnabled().then(setAutostartEnabled);
+    });
   };
   if (!clientData?.id) return null;
   return (
