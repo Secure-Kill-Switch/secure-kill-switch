@@ -69,7 +69,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_BACKEND_URL: "https://dev.securekillswit.ch"
         with:
+          tagName: sks-staging-__VERSION__
+          releaseName: "SKS Staging v__VERSION__"
+          releaseBody: "[STAGING] See the assets to download this version and install."
+          releaseDraft: true
           projectPath: "./apps/app/"
+          prerelease: false
           tauriScript: "pnpm"
           args: ${{ matrix.settings.args }}
