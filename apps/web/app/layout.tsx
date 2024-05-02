@@ -29,6 +29,18 @@ export default function RootLayout({
     <html lang="en" data-mantine-color-scheme="dark">
       <head>
         <ColorSchemeScript forceColorScheme="dark" />
+        <link
+          rel="icon"
+          href="/images/app-icon.png"
+          type="image/png"
+          sizes="128x128"
+        />
+        <link rel="shortcut icon" href="/images/app-icon.png" sizes="128x128" />
+        <link
+          rel="apple-touch-icon"
+          href="/images/app-icon.png"
+          sizes="128x128"
+        />
       </head>
       <body>
         <MantineProvider
