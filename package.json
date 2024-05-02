@@ -1,0 +1,52 @@
+{
+  "name": "secure-kill-switch",
+  "private": true,
+  "scripts": {
+    "build": "dotenv -- turbo run build",
+    "build-app": "dotenv -- turbo run build-app",
+    "dev": "dotenv -- turbo run dev",
+    "lint": "dotenv -- turbo run lint",
+    "migrate": "dotenv -- turbo run migrate",
+    "postinstall": "dotenv -- turbo run prebuild",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.8.1",
+    "@mantine/dates": "^7.8.1",
+    "@mantine/form": "^7.8.1",
+    "@mantine/hooks": "^7.8.1",
+    "@mantine/notifications": "^7.8.1",
+    "@tabler/icons-react": "^3.2.0",
+    "dayjs": "^1.11.11",
+    "dotenv-cli": "^7.4.1",
+    "next": "^14.2.3",
+    "prisma": "^5.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "unique-names-generator": "^4.7.1"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.3",
+    "@sks/eslint-config": "workspace:*",
+    "@sks/typescript-config": "workspace:*",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vercel/style-guide": "^5.2.0",
+    "eslint": "^9.1.1",
+    "eslint-config-next": "14.2.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^1.13.3",
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.3",
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@9.0.4",
+  "engines": {
+    "node": ">=20"
+  }
+}

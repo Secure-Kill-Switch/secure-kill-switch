@@ -1,0 +1,3 @@
+{
+  "extends": "@sks/typescript-config/base.json"
+}

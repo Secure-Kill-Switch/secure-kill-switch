@@ -1,0 +1,23 @@
+{
+  "extends": "@sks/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "next.config.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../packages/common/**/*.ts",
+    "../packages/common/**/*.tx"
+  ],
+  "exclude": ["node_modules"]
+}

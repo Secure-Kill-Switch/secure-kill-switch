@@ -1,0 +1,18 @@
+{
+  "extends": "@sks/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "rootDir": "./",
+    "outDir": "dist",
+    "noEmit": false,
+    "sourceMap": false,
+    "emitDeclarationOnly": true,
+    "declaration": true
+  },
+  "include": [],
+  "exclude": ["node_modules"]
+}

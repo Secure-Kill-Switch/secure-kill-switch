@@ -1,0 +1,24 @@
+{
+  "name": "@sks/app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tauri dev",
+    "build-app": "tauri build",
+    "next-dev": "next dev --turbo -p 3001",
+    "next-build": "next build"
+  },
+  "dependencies": {
+    "@sks/common": "workspace:*",
+    "@sks/database": "workspace:*",
+    "@supabase/supabase-js": "^2.42.7",
+    "@tauri-apps/api": "^1.5.4",
+    "tauri-plugin-autostart-api": "github:tauri-apps/tauri-plugin-autostart",
+    "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store"
+  },
+  "devDependencies": {
+    "@sks/eslint-config": "workspace:*",
+    "@sks/typescript-config": "workspace:*",
+    "@tauri-apps/cli": "^1.5.11"
+  }
+}
