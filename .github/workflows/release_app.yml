@@ -1,4 +1,4 @@
-name: Make a release
+name: 🌟 Make a release 🌟
 
 on:
   workflow_dispatch:
