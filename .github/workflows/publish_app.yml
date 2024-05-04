@@ -74,8 +74,8 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           NEXT_PUBLIC_BACKEND_URL: "https://securekillswit.ch"
         with:
-          tagName: sks-__VERSION__
-          releaseName: "SKS v__VERSION__"
+          tagName: __VERSION__
+          releaseName: "Release __VERSION__"
           releaseBody: "See the assets to download this version and install."
           releaseDraft: false
           projectPath: "./apps/app/"
