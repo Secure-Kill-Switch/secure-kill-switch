@@ -1,8 +1,6 @@
-version = "0.0.4"
-
 [package]
 name = "sks-app"
-version = "0.0.3"
+version = "0.0.4"
 description = "Secure Kill Switch"
 authors = [ "Marcin Ciarka" ]
 license = ""
