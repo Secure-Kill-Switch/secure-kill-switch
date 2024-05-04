@@ -3,17 +3,16 @@ import { ClientsList } from "@sks/common/components/ClientsList";
 import { PageContainer } from "@sks/common/components/PageContainer";
 import { getClients, getUser } from "@sks/common/handlers";
 import { SKSUser } from "@sks/database";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { ReactNode } from "react";
 
 type UserPageProps = {
   params: { userId: string };
 };
 
-export async function generateMetadata(
-  { params }: UserPageProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: UserPageProps): Promise<Metadata> {
   const userDataCall = await getUser({ id: params.userId });
   if (!userDataCall.body.data) {
     return {
