@@ -23,6 +23,11 @@ jobs:
           node-version: lts/*
           cache: "pnpm"
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.9.0
+
       - name: Determine Release Type
         run: |
           if ${{ contains(github.event.inputs.release_type, 'major') }}; then
