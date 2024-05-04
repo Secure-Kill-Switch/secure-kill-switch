@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "tauri dev",
     "build": "tauri build",
+    "build-debug": "tauri build --debug",
     "next-dev": "next dev --turbo -p 3001",
     "next-build": "next build"
   },

@@ -16,6 +16,10 @@
       "dependsOn": ["^db:generate", "prebuild", "^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", "out/**"]
     },
+    "build-debug": {
+      "dependsOn": ["^db:generate", "prebuild", "^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "out/**"]
+    },
     "build-web": {
       "dependsOn": ["^db:generate", "prebuild", "^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]

@@ -1,29 +1,45 @@
+version = "0.0.4"
+
 [package]
-name = "app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "sks-app"
+version = "0.0.3"
+description = "Secure Kill Switch"
+authors = [ "Marcin Ciarka" ]
 license = ""
 repository = ""
-default-run = "app"
+default-run = "sks-app"
 edition = "2021"
 rust-version = "1.60"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[build-dependencies]
-tauri-build = { version = "1.5.1", features = [] }
+[build-dependencies.tauri-build]
+version = "1.5.1"
+features = [ ]
 
 [dependencies]
 serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.6.1", features = ["notification-all"] }
-tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
-tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+system_shutdown = "*"
 
+  [dependencies.serde]
+  version = "1.0"
+  features = [ "derive" ]
+
+  [dependencies.tauri]
+  version = "1.6.1"
+  features = [
+  "window-show",
+  "window-hide",
+  "window-close",
+  "system-tray",
+  "notification-all"
+]
+
+  [dependencies.tauri-plugin-store]
+  git = "https://github.com/tauri-apps/plugins-workspace"
+  branch = "v1"
+
+  [dependencies.tauri-plugin-autostart]
+  git = "https://github.com/tauri-apps/plugins-workspace"
+  branch = "v1"
 
 [features]
-# this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
-# If you use cargo directly instead of tauri's cli you can use this feature flag to switch between tauri's `dev` and `build` modes.
-# DO NOT REMOVE!!
 custom-protocol = [ "tauri/custom-protocol" ]

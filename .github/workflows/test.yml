@@ -2,6 +2,10 @@ name: "build test"
 
 on: [pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish-tauri:
     name: "Build and test"
@@ -69,7 +73,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_BACKEND_URL: "https://dev.securekillswit.ch"
         with:
           projectPath: "./apps/app/"
+          prerelease: false
           tauriScript: "pnpm"
           args: ${{ matrix.settings.args }}

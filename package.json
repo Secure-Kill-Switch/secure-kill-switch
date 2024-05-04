@@ -1,15 +1,16 @@
 {
   "name": "secure-kill-switch",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.4",
   "scripts": {
     "build-web": "dotenv -- turbo run build-web",
     "build": "dotenv -- turbo run build",
+    "build-debug": "dotenv -- turbo run build-debug",
     "dev": "dotenv -- turbo run dev",
     "lint": "dotenv -- turbo run lint",
     "migrate": "dotenv -- turbo run migrate",
     "postinstall": "dotenv -- turbo run prebuild",
-    "release": "pnpm dlx release-it",
+    "release": "release-it",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm -r exec -- pnpm dlx rimraf node_modules && pnpm dlx rimraf node_modules"
   },
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
+    "@release-it/bumper": "^6.0.1",
     "@sks/eslint-config": "workspace:*",
     "@sks/typescript-config": "workspace:*",
     "@types/eslint": "^8.56.10",
@@ -44,6 +46,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-turbo": "^1.13.3",
     "prettier": "^3.2.5",
+    "release-it": "^17.2.1",
     "turbo": "^1.13.3",
     "typescript": "^5.4.5"
   },

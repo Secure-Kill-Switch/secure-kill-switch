@@ -7,13 +7,49 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "sks-app",
-    "version": "0.1.0"
+    "productName": "Secure Kill Switch",
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
       "notification": {
         "all": true
+      },
+      "window": {
+        "all": false,
+        "center": false,
+        "close": true,
+        "create": false,
+        "hide": true,
+        "maximize": false,
+        "minimize": false,
+        "print": false,
+        "requestUserAttention": false,
+        "setAlwaysOnTop": false,
+        "setClosable": false,
+        "setContentProtected": false,
+        "setCursorGrab": false,
+        "setCursorIcon": false,
+        "setCursorPosition": false,
+        "setCursorVisible": false,
+        "setDecorations": false,
+        "setFocus": false,
+        "setFullscreen": false,
+        "setIcon": false,
+        "setIgnoreCursorEvents": false,
+        "setMaxSize": false,
+        "setMaximizable": false,
+        "setMinSize": false,
+        "setMinimizable": false,
+        "setPosition": false,
+        "setResizable": false,
+        "setSize": false,
+        "setSkipTaskbar": false,
+        "setTitle": false,
+        "show": true,
+        "startDragging": false,
+        "unmaximize": false,
+        "unminimize": false
       }
     },
     "bundle": {
@@ -61,8 +97,13 @@
         "height": 600,
         "resizable": false,
         "title": "Secure Kill Switch",
-        "width": 800
+        "width": 800,
+        "label": "sks-main"
       }
-    ]
+    ],
+    "systemTray": {
+      "iconPath": "icons/tray.png",
+      "iconAsTemplate": true
+    }
   }
 }
