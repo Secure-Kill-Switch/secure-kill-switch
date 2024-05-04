@@ -1,0 +1,13 @@
+{
+  "github": {
+    "release": true,
+    "web": true,
+    "autoGenerate": true
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "in": "apps/app/src-tauri/Cargo.toml",
+      "out": "apps/app/src-tauri/Cargo.toml"
+    }
+  }
+}

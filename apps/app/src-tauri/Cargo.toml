@@ -1,11 +1,11 @@
 [package]
-name = "app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "sks-app"
+version = "0.0.3"
+description = "Secure Kill Switch"
+authors = ["Marcin Ciarka"]
 license = ""
 repository = ""
-default-run = "app"
+default-run = "sks-app"
 edition = "2021"
 rust-version = "1.60"
 
