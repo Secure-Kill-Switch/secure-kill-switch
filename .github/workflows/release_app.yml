@@ -1,4 +1,4 @@
-name: 🌟 Make a release 🌟
+name: 🌟 Make a release
 
 on:
   workflow_dispatch:
@@ -45,6 +45,9 @@ jobs:
 
       - name: Release type
         run: echo ${{ env.RELEASE_TYPE }}
+
+      - name: Install frontend dependencies
+        run: pnpm install @release-it/bumper@6.0.1 --frozen-lockfile
 
       - name: Configure git
         run: |
