@@ -1,0 +1,59 @@
+name: Make a release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: "Release type, major | minor | patch"
+        default: "minor"
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: "pnpm"
+
+      - name: Determine Release Type
+        run: |
+          if ${{ contains(github.event.inputs.release_type, 'major') }}; then
+            echo "RELEASE_TYPE=major" >> $GITHUB_ENV
+          elif ${{ contains(github.event.inputs.release_type, 'minor') }}; then
+            echo "RELEASE_TYPE=minor" >> $GITHUB_ENV
+          elif ${{ contains(github.event.inputs.release_type, 'patch') }}; then
+            echo "RELEASE_TYPE=patch" >> $GITHUB_ENV
+          else
+            echo "NOTE: No release type specified in the commit message."
+            exit 1
+          fi
+
+      - name: Release type
+        run: echo ${{ env.RELEASE_TYPE }}
+
+      - name: Configure git
+        run: |
+          git config user.name ${{ github.actor }}
+
+      - name: Make a release
+        run: pnpm release -- ${{ env.RELEASE_TYPE }} --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge staging -> main
+        run: |
+          git status
+          git pull
+          git fetch
+          git checkout main
+          git rebase staging
+          git push origin main
+          git status
