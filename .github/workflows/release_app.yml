@@ -53,6 +53,7 @@ jobs:
       - name: Configure git
         run: |
           git config user.name SKSRelease
+          git config user.email release@securekillswit.ch
 
       - name: Make a release
         run: pnpm release -- ${{ env.RELEASE_TYPE }} --ci
