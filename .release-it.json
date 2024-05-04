@@ -1,4 +1,7 @@
 {
+  "git": {
+    "requireCleanWorkingDir": false
+  },
   "github": {
     "release": true,
     "web": true,
@@ -6,9 +9,11 @@
   },
   "plugins": {
     "@release-it/bumper": {
-      "path": "[package].version",
       "in": "apps/app/src-tauri/Cargo.toml",
-      "out": "apps/app/src-tauri/Cargo.toml"
+      "out": {
+        "file": "apps/app/src-tauri/Cargo.toml",
+        "path": "package.version"
+      }
     }
   }
 }
