@@ -2,6 +2,8 @@ name: Make a release
 
 on:
   workflow_dispatch:
+    branches:
+      - staging
     inputs:
       release_type:
         description: "Release type, major | minor | patch"
