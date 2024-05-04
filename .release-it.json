@@ -6,7 +6,7 @@
   },
   "plugins": {
     "@release-it/bumper": {
-      "path": "package.version",
+      "path": "[package].version",
       "in": "apps/app/src-tauri/Cargo.toml",
       "out": "apps/app/src-tauri/Cargo.toml"
     }
