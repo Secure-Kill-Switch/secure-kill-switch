@@ -17,9 +17,10 @@ tauri-build = { version = "1.5.1", features = [] }
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.6.1", features = ["notification-all"] }
+tauri = { version = "1.6.1", features = [ "window-show", "window-hide", "window-close", "system-tray", "notification-all"] }
 tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+system_shutdown = "*"
 
 
 [features]
