@@ -7,3 +7,4 @@ export * from "./get-user";
 export * from "./remove-client";
 export * from "./revalidate-path";
 export * from "./show-notification-client";
+export * from "./shutdown-client";

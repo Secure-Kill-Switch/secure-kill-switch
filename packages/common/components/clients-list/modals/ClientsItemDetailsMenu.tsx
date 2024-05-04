@@ -18,7 +18,11 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import { useState } from "react";
-import { removeClient, revalidateCachePath } from "../../../handlers";
+import {
+  removeClient,
+  revalidateCachePath,
+  shutdownClient,
+} from "../../../handlers";
 import { shortenId } from "../../../helpers";
 import { ClientWithActions } from "../../../types";
 
@@ -57,6 +61,25 @@ export const ClientsItemDetailsMenu = ({
     setRemovingClient(false);
   };
 
+  const shutdownClientAction = async () => {
+    const shutdownClientCall = await shutdownClient({ userId, id: client.id });
+    if (shutdownClientCall.status !== 200) {
+      notifications.show({
+        title: "Error shutting down client",
+        message: shutdownClientCall.body.message,
+        color: "red",
+      });
+      return;
+    }
+    notifications.show({
+      title: "Client shut down",
+      message: client.name
+        ? `Client ${shortenId(client.id)} (${client.name}) shut down`
+        : `Client ${shortenId(client.id)} shut down`,
+      color: "teal",
+    });
+  };
+
   const menuIconsStyle = { width: rem(14), height: rem(14) };
 
   return (
@@ -85,7 +108,10 @@ export const ClientsItemDetailsMenu = ({
 
       <MenuDropdown>
         <MenuLabel>Actions</MenuLabel>
-        <MenuItem leftSection={<IconPower style={menuIconsStyle} />}>
+        <MenuItem
+          onClick={shutdownClientAction}
+          leftSection={<IconPower style={menuIconsStyle} />}
+        >
           Shutdown
         </MenuItem>
         <MenuItem

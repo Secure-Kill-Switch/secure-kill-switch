@@ -15,5 +15,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "rust-analyzer.linkedProjects": ["apps/app/src-tauri/Cargo.toml"]
 }
