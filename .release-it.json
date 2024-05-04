@@ -8,11 +8,15 @@
   },
   "plugins": {
     "@release-it/bumper": {
-      "in": "apps/app/src-tauri/Cargo.toml",
-      "out": {
-        "file": "apps/app/src-tauri/Cargo.toml",
-        "path": "package.version"
-      }
+      "out": [
+        {
+          "file": "apps/app/src-tauri/Cargo.toml",
+          "path": "package.version"
+        },
+        {
+          "file": "apps/app/package.json"
+        }
+      ]
     }
   }
 }
