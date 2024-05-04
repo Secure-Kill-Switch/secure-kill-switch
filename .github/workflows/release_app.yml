@@ -47,7 +47,7 @@ jobs:
         run: echo ${{ env.RELEASE_TYPE }}
 
       - name: Install frontend dependencies
-        run: pnpm install --frozen-lockfile @release-it/bumper@6.0.1
+        run: pnpm install
 
       - name: Configure git
         run: |
