@@ -15,6 +15,7 @@ fn shutdown_system() {
   }
 }
 fn main() {
+  let _fix_unix_paths = fix_path_env::fix();
   let sks_system_tray = SystemTray::new();
   tauri::Builder::default()
     .on_window_event(|event| match event.event() {
