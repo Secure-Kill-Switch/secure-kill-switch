@@ -51,7 +51,7 @@ jobs:
           git config user.name ${{ github.actor }}
 
       - name: Make a release
-        run: pnpm release -- ${{ env.RELEASE_TYPE }} --ci
+        run: pnpm dlx release-it -- ${{ env.RELEASE_TYPE }} --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
