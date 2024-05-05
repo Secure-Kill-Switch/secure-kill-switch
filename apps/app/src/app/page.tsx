@@ -10,6 +10,7 @@ import { PageContainer } from "@sks/common/components/PageContainer";
 
 import { AppClientData } from "@sks/common/types";
 import { SKSAction } from "@sks/database";
+import { sendNotification } from "@tauri-apps/api/notification";
 import { useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";
@@ -25,11 +26,20 @@ export default function Home() {
   };
   const saveClientIdOnSubmit = (clientId: string) => {
     setGettingClientData(true);
-    ping(clientId).then(handlePingData);
+    ping(clientId)
+      .then(handlePingData)
+      .then(() => {
+        sendNotification({
+          title: "Secure Kill Switch",
+          body: "Client ID saved successfully! You can now control this client remotely.",
+          sound: "default",
+        });
+      });
   };
   const clearClientId = () => {
-    setClientData(undefined);
-    void clientDataStore.delete();
+    clientDataStore.delete().then(() => {
+      setClientData(undefined);
+    });
   };
   useEffect(() => {
     clientDataStore.get().then((clientData) => {
@@ -41,8 +51,12 @@ export default function Home() {
     });
   }, []);
   return (
-    <PageContainer clientName={clientData?.name} clientIcon={clientData?.icon}>
-      <GlassBox mb="20px">
+    <PageContainer
+      clientName={clientData?.name}
+      clientIcon={clientData?.icon}
+      noContainerPadding
+    >
+      <GlassBox>
         <ClientView
           clientData={clientData}
           clearClientId={clearClientId}

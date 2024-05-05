@@ -86,7 +86,7 @@ export const ClientsItemDetailsMenu = ({
     <Menu shadow="md" width={200}>
       <MenuTarget>
         <Badge
-          mr="10px"
+          mr="lg"
           style={{
             textTransform: "none",
             userSelect: "none",

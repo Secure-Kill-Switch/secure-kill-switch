@@ -11,16 +11,18 @@ export const PageContainer = ({
   userName,
   clientName,
   clientIcon,
-  noPadding,
+  noHeaderPadding,
+  noContainerPadding,
 }: PropsWithChildren<{
   userName?: string;
   clientName?: string;
   clientIcon?: ClientIcons;
-  noPadding?: boolean;
+  noHeaderPadding?: boolean;
+  noContainerPadding?: boolean;
 }>) => {
   return (
     <>
-      <Container mt="20px" p={noPadding ? "0" : undefined}>
+      <Container mt="20px" p={noHeaderPadding ? "0" : undefined}>
         <GlassBox mb="30px" pos="sticky" top="20px">
           <Flex align="center">
             <Link
@@ -61,7 +63,7 @@ export const PageContainer = ({
             {userName && (
               <Title
                 size="22px"
-                mr="10px"
+                mr="lg"
                 ml="auto"
                 mt="2px"
                 lts="-1px"
@@ -79,8 +81,8 @@ export const PageContainer = ({
             {clientName && (
               <Title
                 size="22px"
-                mr="10px"
-                ml="10px"
+                mr="lg"
+                ml="lg"
                 mt="2px"
                 lts="-1px"
                 unselectable="on"
@@ -91,7 +93,7 @@ export const PageContainer = ({
           </Flex>
         </GlassBox>
       </Container>
-      <Container mt="20px" mb="100px">
+      <Container mt="20px" mb={noContainerPadding ? "0" : "100px"}>
         {children}
       </Container>
     </>

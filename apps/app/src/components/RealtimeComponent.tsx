@@ -77,7 +77,7 @@ export const RealtimeComponent = ({
   if (process.env.NEXT_PUBLIC_DEBUG_REALTIME) {
     return (
       <Box>
-        <Divider mt="20px" mb="10px" />
+        <Divider mt="20px" mb="lg" />
         <h1>Realtime messagess</h1>
         <div>
           {actions.map((action, index) => (

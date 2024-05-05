@@ -53,7 +53,6 @@ export const NewUserForm = () => {
     <>
       <Flex justify="center">
         <Button
-          size="lg"
           leftSection={<IconUser style={{ width: rem(14), height: rem(14) }} />}
           onClick={openAddNewUser}
         >

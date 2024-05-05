@@ -23,7 +23,7 @@ system_shutdown = "*"
 
   [dependencies.tauri]
   version = "1.6.1"
-  features = [
+  features = [ "shell-open",
   "window-show",
   "window-hide",
   "window-close",

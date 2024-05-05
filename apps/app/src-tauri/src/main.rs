@@ -14,10 +14,23 @@ fn shutdown_system() {
       Err(error) => eprintln!("Failed to shut down: {}", error),
   }
 }
+
+fn open_and_focus_window(app: &tauri::AppHandle) {
+  let window = app.get_window("sks-main").unwrap();
+  window.show().unwrap();
+  window.set_focus().unwrap();
+}
+
 fn main() {
   let _fix_unix_paths = fix_path_env::fix();
   let sks_system_tray = SystemTray::new();
-  tauri::Builder::default()
+  tauri::Builder::default().setup(|_app| {
+    #[cfg(target_os = "macos")]
+    {
+      _app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+    }
+    Ok(())
+  })
     .on_window_event(|event| match event.event() {
       tauri::WindowEvent::CloseRequested { api, .. } => {
         event.window().hide().unwrap();
@@ -55,10 +68,4 @@ fn main() {
     .invoke_handler(tauri::generate_handler![shutdown_system])
     .run(tauri::generate_context!())
     .expect("SKS failed to run.");
-}
-
-fn open_and_focus_window(app: &tauri::AppHandle) {
-  let window = app.get_window("sks-main").unwrap();
-  window.show().unwrap();
-  window.set_focus().unwrap();
 }
