@@ -61,7 +61,7 @@ export const PageContainer = ({
             {userName && (
               <Title
                 size="22px"
-                mr="10px"
+                mr="lg"
                 ml="auto"
                 mt="2px"
                 lts="-1px"
@@ -79,8 +79,8 @@ export const PageContainer = ({
             {clientName && (
               <Title
                 size="22px"
-                mr="10px"
-                ml="10px"
+                mr="lg"
+                ml="lg"
                 mt="2px"
                 lts="-1px"
                 unselectable="on"

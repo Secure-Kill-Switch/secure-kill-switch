@@ -17,6 +17,6 @@ export const clientDataStore = {
     await store.save();
   },
   delete: async () => {
-    await store.delete("clientData");
+    await store.delete("clientData").then(() => store.save());
   },
 };

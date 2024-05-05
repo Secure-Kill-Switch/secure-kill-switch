@@ -50,6 +50,13 @@
         "startDragging": false,
         "unmaximize": false,
         "unminimize": false
+      },
+      "shell": {
+        "all": false,
+        "execute": false,
+        "open": true,
+        "scope": [],
+        "sidecar": false
       }
     },
     "bundle": {
@@ -74,7 +81,7 @@
         "exceptionDomain": "",
         "frameworks": [],
         "providerShortName": null,
-        "signingIdentity": "-"
+        "signingIdentity": "Secure Kill Switch"
       },
       "resources": [],
       "shortDescription": "",
@@ -94,11 +101,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
         "resizable": false,
         "title": "Secure Kill Switch",
         "width": 800,
-        "label": "sks-main"
+        "height": 350,
+        "label": "sks-main",
+        "visible": false
       }
     ],
     "systemTray": {

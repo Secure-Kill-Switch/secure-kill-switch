@@ -96,8 +96,8 @@ export const NewClientForm = ({ userId }: { userId: string }) => {
               {...createClientForm.getInputProps("name")}
             />
             <Flex
-              p="10px"
-              mb="10px"
+              p="lg"
+              mb="lg"
               bg="dark.6"
               style={{ borderRadius: "4px" }}
               justify="space-evenly"

@@ -117,7 +117,7 @@ export const ClientDetails = ({
                     color={copied ? "green" : "gray"}
                     size="lg"
                     variant="transparent"
-                    mb="10px"
+                    mb="lg"
                     rightSection={
                       <IconCopy size="16px" style={{ marginLeft: "5px" }} />
                     }
@@ -165,7 +165,7 @@ export const ClientDetails = ({
                   base: "100%",
                   lg: "fit-content",
                 }}
-                mr="10px"
+                mr="lg"
                 size="lg"
                 leftSection={
                   <IconClock size="16px" style={{ marginRight: "5px" }} />

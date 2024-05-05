@@ -1,8 +1,10 @@
-import { Text } from "@mantine/core";
+import { Center, Flex, Text } from "@mantine/core";
 import { ClientsList } from "@sks/common/components/ClientsList";
+import { GlassBox } from "@sks/common/components/GlassBox";
 import { PageContainer } from "@sks/common/components/PageContainer";
 import { getClients, getUser } from "@sks/common/handlers";
 import { SKSUser } from "@sks/database";
+import { IconTemplateOff } from "@tabler/icons-react";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -45,10 +47,25 @@ export default async function UserPageLayout({
     return <Text>Error finding user</Text>;
   }
   return (
-    <PageContainer userName={userData?.name} noPadding>
+    <PageContainer userName={userData?.name}>
       {children}
       {clientsData && userData?.id && (
         <ClientsList userId={userData.id} clients={clientsData} />
+      )}
+      {!clientsData?.length && (
+        <GlassBox mt="lg">
+          <Flex direction="column">
+            <Center my="lg">
+              <IconTemplateOff size="50" strokeWidth={1} />
+            </Center>
+            <Center>
+              <Text size="xl">No clients found.</Text>
+            </Center>
+            <Center>
+              <Text mb="xl">Add a client to get started.</Text>
+            </Center>
+          </Flex>
+        </GlassBox>
       )}
     </PageContainer>
   );

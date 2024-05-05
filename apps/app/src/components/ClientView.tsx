@@ -9,7 +9,6 @@ import {
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import { invoke } from "@tauri-apps/api/tauri";
-import { WebviewWindow } from "@tauri-apps/api/window";
 
 async function isAutostartEnabled(): Promise<boolean> {
   return await invoke("plugin:autostart|is_enabled");
@@ -23,6 +22,10 @@ async function disableAutostart(): Promise<void> {
 
 const actionIconsStyle = { width: rem(18), height: rem(18) };
 
+async function getAppWindow() {
+  return (await import("@tauri-apps/api/window")).appWindow;
+}
+
 export const ClientView = ({
   clientData,
   clearClientId,
@@ -32,26 +35,20 @@ export const ClientView = ({
   clearClientId: () => void;
   setClientData: Dispatch<SetStateAction<AppClientData | undefined>>;
 }) => {
-  const [appWindow, setAppWindow] = useState<WebviewWindow>();
   const [notificationPermission, setNotificationPermission] = useState(false);
   const [autostartEnabled, setAutostartEnabled] = useState(false);
-  async function setupAppWindow() {
-    const appWindow = (await import("@tauri-apps/api/window")).appWindow;
-    setAppWindow(appWindow);
-  }
-  async function minimizeApp(): Promise<void> {
-    console.log("minimizeApp");
-    await appWindow?.hide();
-  }
   async function closeApp(): Promise<void> {
-    await appWindow?.close();
+    getAppWindow().then((appWindow) => {
+      appWindow.close();
+    });
   }
   useEffect(() => {
-    setupAppWindow().then(() => {
+    getAppWindow().then((appWindow) => {
       void isPermissionGranted().then(setNotificationPermission);
       void isAutostartEnabled().then((enabled) => {
         setAutostartEnabled(enabled);
-        void minimizeApp();
+        // if autostart is not enabled, we need to manually show the window
+        !enabled && appWindow.show();
       });
     });
   }, []);
@@ -85,7 +82,7 @@ export const ClientView = ({
           variant="outline"
           color="red"
           onClick={clearClientId}
-          mt="15px"
+          mt="lg"
           leftSection={<IconTrash style={actionIconsStyle} />}
         >
           Reset client
@@ -96,7 +93,7 @@ export const ClientView = ({
           disabled={notificationPermission}
           onClick={requestNotificationPermission}
           leftSection={<IconBell style={actionIconsStyle} />}
-          mt="15px"
+          mt="lg"
         >
           {notificationPermission
             ? "Notifications enabled"
@@ -112,7 +109,7 @@ export const ClientView = ({
                 : requestAutostartPermission
             }
             leftSection={<IconLogin style={actionIconsStyle} />}
-            mt="15px"
+            mt="lg"
           >
             {autostartEnabled ? "Auto start enabled" : "Enable auto start"}
           </Button>
@@ -127,7 +124,7 @@ export const ClientView = ({
           color="lime"
           onClick={closeApp}
           leftSection={<IconPower style={actionIconsStyle} />}
-          mt="15px"
+          mt="lg"
         >
           Close app
         </Button>
