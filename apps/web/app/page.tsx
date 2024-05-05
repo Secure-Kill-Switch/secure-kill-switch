@@ -6,7 +6,7 @@ import { StatsBox } from "@sks/common/components/StatsBox";
 
 export default function HomePage(): JSX.Element {
   return (
-    <PageContainer noPadding>
+    <PageContainer noHeaderPadding>
       <Title
         size="50px"
         mt="100px"

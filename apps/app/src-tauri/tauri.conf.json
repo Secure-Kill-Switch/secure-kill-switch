@@ -104,7 +104,7 @@
         "resizable": false,
         "title": "Secure Kill Switch",
         "width": 800,
-        "height": 350,
+        "height": 340,
         "label": "sks-main",
         "visible": false
       }

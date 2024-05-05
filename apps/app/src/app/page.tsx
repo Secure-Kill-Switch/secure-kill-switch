@@ -51,8 +51,12 @@ export default function Home() {
     });
   }, []);
   return (
-    <PageContainer clientName={clientData?.name} clientIcon={clientData?.icon}>
-      <GlassBox mb="20px">
+    <PageContainer
+      clientName={clientData?.name}
+      clientIcon={clientData?.icon}
+      noContainerPadding
+    >
+      <GlassBox>
         <ClientView
           clientData={clientData}
           clearClientId={clearClientId}
