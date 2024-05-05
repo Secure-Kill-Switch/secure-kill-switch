@@ -24,10 +24,10 @@ fn open_and_focus_window(app: &tauri::AppHandle) {
 fn main() {
   let _fix_unix_paths = fix_path_env::fix();
   let sks_system_tray = SystemTray::new();
-  tauri::Builder::default().setup(|app| {
+  tauri::Builder::default().setup(|_app| {
     #[cfg(target_os = "macos")]
     {
-      app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+      _app.set_activation_policy(tauri::ActivationPolicy::Accessory);
     }
     Ok(())
   })
