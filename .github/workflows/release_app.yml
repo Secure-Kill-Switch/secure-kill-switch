@@ -58,7 +58,7 @@ jobs:
       - name: Make a release
         run: pnpm release -- ${{ env.RELEASE_TYPE }} --ci
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge staging -> main
         run: |
