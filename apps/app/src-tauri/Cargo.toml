@@ -1,6 +1,6 @@
 [package]
 name = "sks-app"
-version = "0.1.4"
+version = "0.1.5"
 description = "Secure Kill Switch"
 authors = [ "Marcin Ciarka" ]
 license = ""
@@ -23,7 +23,8 @@ system_shutdown = "*"
 
   [dependencies.tauri]
   version = "1.6.1"
-  features = [ "shell-open",
+  features = [
+  "shell-open",
   "window-show",
   "window-hide",
   "window-close",
