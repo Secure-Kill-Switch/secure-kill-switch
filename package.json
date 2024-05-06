@@ -1,7 +1,7 @@
 {
   "name": "secure-kill-switch",
   "private": true,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "build-web": "dotenv -- turbo run build-web",
     "build": "dotenv -- turbo run build",
